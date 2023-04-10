@@ -1,0 +1,3 @@
+const Logout = ()=>{
+    UserModel.remove();
+}

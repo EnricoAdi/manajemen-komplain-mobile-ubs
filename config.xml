@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.kpsibubs.com" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>manajemen-komplain-mobile-ubs</name>
+    <description>Mobile App Manajemen Komplain UBS</description>
+    <author email="enrico_a20@mhs.istts.ac.id" href="https://cordova.apache.org">
+        SIB ISTTS
+    </author>
+    
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-navigation href="http://192.168.1.8/*" />
+    <allow-navigation href="http://10.0.2.2/*" />
+    <allow-intent href="*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <content src="index.html" />
+    <allow-intent href="http://*/*" /> 
+    <preference name="Scheme" value="http" />
+    <icon src="www/img/logo.png"  />
+</widget>
