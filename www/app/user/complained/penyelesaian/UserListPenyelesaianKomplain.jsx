@@ -1,4 +1,4 @@
-const UserListComplain = ()=>{  
+const UserListPenyelesaianKomplain = ()=>{
     const [data, setData] = useState([
         {
             no_komplain: '12314188',
@@ -20,13 +20,13 @@ const UserListComplain = ()=>{
     ]);
     return(
         <div> 
-            <PageTitle>Daftar Komplain Diajukan</PageTitle>
-            <Button icon="fas fa-fw fa-paper-plane mr-2" href="/user/complain/add/pilihDivisi">Ajukan Komplain Baru</Button>
+            <PageTitle>Daftar Komplain Ditugaskan</PageTitle>
+            <Button icon="fas fa-fw fa-list mr-2" href="/user/complained/listcomplained">Halaman Daftar Komplain Diterima</Button>
             <div> 
                 {data.map((item,index)=>{ 
                         return   <ComplainCard complain={item} key={index}/>
                     })}
             </div>
         </div>
-    ) 
+    )
 }

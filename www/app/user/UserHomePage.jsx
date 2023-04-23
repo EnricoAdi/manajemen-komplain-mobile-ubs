@@ -174,13 +174,16 @@ const UserHomePage = ()=>{
                                         <UserListComplained/>
                                     </Route>
                                     <Route exact path="/user/complained/penyelesaian">
-                                        <div>halaman Penyelesaian</div>
+                                        <UserListPenyelesaianKomplain/>
+                                    </Route>
+                                    <Route exact path="/user/complained/penugasan/add/:no_komplain">
+                                        <UserIsiPenugasan/>
                                     </Route>
                                     <Route exact path="/user/complained/penugasan">
-                                        <div>halaman Penugasan</div>
+                                        <UserListPenugasan/>
                                     </Route>
                                     <Route exact path="/user/complained/done">
-                                        <div>halaman done</div>
+                                        <UserListDoneKomplain/>
                                     </Route>
                                     <Route exact path="/user/dashboard">
                                         <UserDashboard/>
