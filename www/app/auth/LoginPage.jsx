@@ -5,8 +5,8 @@ const LoginPage = (param)=>{
 
     const [isLoading,setisLoading] = useState(false); 
 
-    const [pass,setpass] = useState(""); 
-    // console.log(UserModel().get())
+    const [pass,setpass] = useState("");  
+
     const urlImage = "img/logo.png"
 
     const onChangeNoInduk = (e)=>{
@@ -42,7 +42,8 @@ const LoginPage = (param)=>{
         let res = await LoginViewModel.login(data);
         if(!res.status){
             alert("Login gagal, "+res.message);
-            setisLoading(false);
+            $('#popUpModal').modal('show');
+            setisLoading(false); 
         }else{ 
             setisLoading(false);
             console.log(res.hak_akses)
@@ -63,7 +64,7 @@ const LoginPage = (param)=>{
                 //     history.push("admin")  
             }
         }
-    }
+    } 
     return (
         <div style={bodyStyle}>  
             <section className="pt-4">
@@ -105,7 +106,7 @@ const LoginPage = (param)=>{
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
             </section>
         </div>
     );

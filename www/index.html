@@ -21,10 +21,37 @@
         <!-- Data table -->
         <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     </head>
-    <body id="page-top"> 
+    <body id="page-top" class=""> 
         <div id="root"></div>  
 
 
+        <script src="js/login/jquery.min.js"></script>
+        <script src="js/login/popper.js"></script>
+        <script src="js/login/bootstrap.min.js"></script>
+        <script src="js/login/main.js"></script>
+        <script src="vendor/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    
+    
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    
+        <!-- Custom scripts for all pages-->
+        
+        <script src="js/template/sb-admin-2.min.js"></script>
+        <script src="vendor/chart.js/Chart.min.js"></script>
+    
+        <!-- Page level custom scripts -->
+        <!-- <script src="js/template/demo/chart-area-demo.js"></script>
+        <script src="js/template/demo/chart-pie-demo.js"></script> -->
+        <!-- Datatable -->
+        <script src="vendor/datatables/jquery.dataTables.min.js" crossorigin></script>
+        <script src="vendor/datatables/dataTables.bootstrap4.min.js" crossorigin></script> 
+        <!-- <script src="js/demo/datatables-demo.js"></script> -->
+    
         <!-- load library for react and babel -->
         <script src="./vendor/library/react-development/react.development.js" crossorigin ></script>
         <script src="./vendor/library/react-dom/react-dom.development.js" crossorigin ></script>
@@ -46,9 +73,13 @@
         <script src="./model/UserModel.js" type="text/babel"></script>
 
         <!-- load components -->
+        <script type="text/babel" src="./components/cards/Card1.jsx"></script>
+        <script type="text/babel" src="./components/cards/Card.jsx"></script>
+        <script type="text/babel" src="./components/cards/ComplainCard.jsx"></script>
         <script type="text/babel" src="./components/Loading.jsx"></script>
         <script type="text/babel" src="./components/PageTitle.jsx"></script>
         <script type="text/babel" src="./components/TopbarProfile.jsx"></script>
+        <script type="text/babel" src="./components/Table.jsx"></script>
         <script type="text/babel" src="./components/Button.jsx"></script>
         <script type="text/babel" src="./components/ListLink.jsx"></script>
         <script type="text/babel" src="./components/ScrollToTopButton.jsx"></script>
@@ -70,46 +101,16 @@
 
         <!-- user complain page -->
         <script type="text/babel" src="./app/user/complain/UserListComplain.jsx" data-presets="react"></script>
+        <script type="text/babel" src="./app/user/complain/UserSolvedList.jsx" data-presets="react"></script>
         <script type="text/babel" src="./app/user/complain/UserDetailComplain.jsx" data-presets="react"></script>
         <script type="text/babel" src="./app/user/complain/UserAddComplain.jsx" data-presets="react"></script>
         <script type="text/babel" src="./app/user/complain/ComplainPage.jsx" data-presets="react"></script>
+        
+        <!-- complained page -->
+        <script type="text/babel" src="./app/user/complained/UserListComplained.jsx" data-presets="react"></script>
 
 
         
-        <script type="text/babel" src="App.js" ></script>
-
-
-
-
-        
-    <script src="js/login/jquery.min.js"></script>
-    <script src="js/login/popper.js"></script>
-    <script src="js/login/bootstrap.min.js"></script>
-    <script src="js/login/main.js"></script>
-    <script src="vendor/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    
-    <script src="js/template/sb-admin-2.min.js"></script>
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/template/demo/chart-area-demo.js"></script>
-    <script src="js/template/demo/chart-pie-demo.js"></script>
-
-    <!-- Datatable -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script> 
-    <script src="js/demo/datatables-demo.js"></script>
-    
-
+        <script type="text/babel" src="App.js" ></script> 
     </body>
 </html>

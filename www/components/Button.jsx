@@ -1,8 +1,8 @@
 const Button = (btnProps)=>{
-    let {type,id,icon,backgroundColor,href, btnStyle} = btnProps;
+    let {type,id,icon,backgroundColor,href, btnStyle, onClick, className} = btnProps;
 
     type==="" ? type="button" : type=type; 
-    let className = "btn btn"+backgroundColor; 
+    className = className+" btn btn"+backgroundColor; 
     icon!="" ? icon = <i className={icon}></i> : "";
     
     switch(backgroundColor){
@@ -49,14 +49,14 @@ const Button = (btnProps)=>{
         <>  
             {href!=null && 
                 <Link to={href}> 
-                        <button  type={type} id={id} className={className} style={btnStyle}>  
+                        <button  type={type} id={id} className={className} style={btnStyle} onClick={onClick}>  
                             {icon}
                             {btnProps.children}
                         </button>
                 </Link> 
             }
             {href==null&& 
-            <button type={type} id={id} className={className} style={btnStyle}>  
+            <button type={type} id={id} className={className} style={btnStyle} onClick={onClick}>  
                 {icon}
                 {btnProps.children}
             </button>

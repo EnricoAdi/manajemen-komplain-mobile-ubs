@@ -1,7 +1,7 @@
 const UserDetailComplain = ()=>{
     return(
         <div>
-            <h1>Complain Detail</h1>
+            <PageTitle>Complain Detail</PageTitle>
         </div>
     )
 }

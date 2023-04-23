@@ -5,6 +5,7 @@ const UserHomePage = ()=>{
      
     const history = useHistory();  
     const path = history.location.pathname.toLowerCase().split("/");
+
     // console.log(path)
     const toggleSidebar = ()=>{ 
         if(sidebarClass=="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"){
@@ -36,62 +37,7 @@ const UserHomePage = ()=>{
             setCollapsePagesPenyelesaianKomplain("collapse")
         }
     }
-    // const setActive = ()=>{
-    //     else if(path[2]=="complain"){ 
-    //         if(path[3]=="list" || path[3]=="add"){
-    //             setActiveState({
-    //                 dashboard:" nav-item",
-    //                 pengajuan:"nav-item active",
-    //                 penyelesaian_komplain_diterima:"nav-item",
-    //                 daftar_komplain:"nav-item",
-    //                 penyelesaian_komplain_diajukan:"nav-item",
-    //                 komplain_ditugaskan:"nav-item",
-    //             }); 
-    //         }else{
-    //             setActiveState({
-    //                 dashboard:" nav-item",
-    //                 pengajuan:"nav-item",
-    //                 penyelesaian_komplain_diterima:"nav-item active",
-    //                 daftar_komplain:"nav-item",
-    //                 penyelesaian_komplain_diajukan:"nav-item",
-    //                 komplain_ditugaskan:"nav-item",
-    //             }); 
-    //         }
-    //     }else if(path[2]=="complained"){ 
-    //         if(path[3]=="listcomplained"){ 
-    //             setActiveState({ 
-    //                 dashboard:" nav-item",
-    //                 pengajuan:"nav-item",
-    //                 penyelesaian_komplain_diterima:"nav-item",
-    //                 daftar_komplain:"nav-item active",
-    //                 penyelesaian_komplain_diajukan:"nav-item",
-    //                 komplain_ditugaskan:"nav-item",
-    //             });
-    //         }else if(path[3]=="penyelesaian"){
-    //             setActiveState({ 
-    //                 dashboard:" nav-item",
-    //                 pengajuan:"nav-item",
-    //                 penyelesaian_komplain_diterima:"nav-item",
-    //                 daftar_komplain:"nav-item",
-    //                 penyelesaian_komplain_diajukan:"nav-item",
-    //                 komplain_ditugaskan:"nav-item active",
-    //             });
-    //         }else{
-    //             setActiveState({ 
-    //                 dashboard:" nav-item",
-    //                 pengajuan:"nav-item",
-    //                 penyelesaian_komplain_diterima:"nav-item",
-    //                 daftar_komplain:"nav-item",
-    //                 penyelesaian_komplain_diajukan:"nav-item active",
-    //                 komplain_ditugaskan:"nav-item",
-    //             });
-    //         }
-    //     }
-        
-    // }
-    // useEffect(()=>{
-    //     setActive();
-    // },[activeState]);
+  
     return( 
          <div id="wrapper">
 
@@ -127,10 +73,10 @@ const UserHomePage = ()=>{
                             </a>
                             <div id="collapsePagesPengajuan" className={collapsePagePengajuan} aria-labelledby="headingPages" data-parent="#accordionSidebar">
 
-                                <div className="bg-white py-2 collapse-inner rounded">
+                                <div className="bg-white py-2 collapse-inner rounded animated--fade-in">
                                     <h6 className="collapse-header">Pengajuan Komplain</h6>
                                     <Link className="collapse-item" to="/user/complain/list">Daftar Komplain</Link>
-                                    <Link className="collapse-item" to="/user/complain/add/page/1">Tambah Komplain</Link>
+                                    <Link className="collapse-item" to="/user/complain/add/pilihDivisi">Tambah Komplain</Link>
                                 </div>
                             </div>
                         </ListLink> 
@@ -164,7 +110,7 @@ const UserHomePage = ()=>{
                             </a>
                             <div id="collapsePagesPenyelesaianKomplain" className={collapsePagesPenyelesaianKomplain}aria-labelledby="headingPages" data-parent="#accordionSidebar">
 
-                                <div className="bg-white py-2 collapse-inner rounded">
+                                <div className="bg-white py-2 collapse-inner rounded animated--fade-in">
                                     <h6 className="collapse-header">Penyelesaian Komplain</h6>
                                     <Link className="collapse-item" to="/user/complained/penugasan">Penugasan</Link>
                                     <Link className="collapse-item" to="/user/complained/done">Done</Link>
@@ -215,17 +161,17 @@ const UserHomePage = ()=>{
                             {/*  Begin Page Content */} 
                             <div className="container-fluid"> 
                                 <Switch>  
-                                    <Route path="/user/complain/add/page/:num">
-                                        <div>halaman 1</div>
+                                    <Route path="/user/complain/add/">
+                                        <UserAddComplain/>
                                     </Route> 
                                     <Route path="/user/complain/solved">
-                                        <div>solved</div>
+                                        <UserSolvedList/>
                                     </Route>
                                     <Route path="/user/complain/list">
-                                        <div>halaman Daftar</div>
+                                        <UserListComplain/>
                                     </Route>
                                     <Route exact path="/user/complained/listcomplained">
-                                        <div>halaman Selesai</div>
+                                        <UserListComplained/>
                                     </Route>
                                     <Route exact path="/user/complained/penyelesaian">
                                         <div>halaman Penyelesaian</div>
@@ -258,7 +204,7 @@ const UserHomePage = ()=>{
         
             {/* <!-- Scroll to Top Button--> */}
             <ScrollToTopButton/>
-        
+         
             </div> 
     )
 }

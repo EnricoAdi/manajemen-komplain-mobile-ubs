@@ -13,7 +13,7 @@ const App = ()=> {
     // ];
     // console.log(routes)
     return (
-        <div>  
+        <div className="modal-open">  
             <HashRouter>   
                 <Switch>  
                     <Route path="/user">
