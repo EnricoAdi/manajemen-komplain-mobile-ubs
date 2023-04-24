@@ -23,26 +23,19 @@ const UserHomePage = ()=>{
         }
     }
 
-    const togglePengajuan = ()=>{
-        if(collapsePagePengajuan=="collapse"){
-            setCollapsePagePengajuan("collapse show") 
-        }else{
-            setCollapsePagePengajuan("collapse") 
-        }
-    }
-    const togglePenyelesaianKomplain = ()=>{
-        if( collapsePagesPenyelesaianKomplain=="collapse"){
-            setCollapsePagesPenyelesaianKomplain("collapse show")
-        }else{
-            setCollapsePagesPenyelesaianKomplain("collapse")
-        }
-    }
+    // const togglePenyelesaianKomplain = ()=>{
+    //     if( collapsePagesPenyelesaianKomplain=="collapse"){
+    //         setCollapsePagesPenyelesaianKomplain("collapse show")
+    //     }else{
+    //         setCollapsePagesPenyelesaianKomplain("collapse")
+    //     }
+    // }
   
     return( 
          <div id="wrapper">
 
                     {/*  Sidebar */} 
-                        <ul className={sidebarClass} id="accordionSidebar">
+                        <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
                         {/*  Sidebar - Brand */}
                         <a className="sidebar-brand d-flex align-items-center justify-content-center mt-2">
                             <img src="./img/logo.png" alt="ubs" className="rounded-3 w-100 mt-4"/>
@@ -50,13 +43,13 @@ const UserHomePage = ()=>{
 
                         {/*  Divider */}
                         <hr className="sidebar-divider my-2"/>
- 
-                        <ListLink equal="/user/dashboard">
+  
+                        <li className="nav-item"> 
                             <Link className="nav-link" to="/user/dashboard">
                                 <i className="fas fa-fw fa-tachometer-alt"></i>
                                 <span>Dashboard</span>
-                            </Link>
-                        </ListLink>
+                            </Link> 
+                        </li>
 
                         {/*  Divider */}
                         <hr className="sidebar-divider"/>
@@ -65,13 +58,13 @@ const UserHomePage = ()=>{
                         <div className="sidebar-heading">
                             Komplain Diajukan
                         </div>
-                        <ListLink equal="/user/complain/list">
-                            <a className="nav-link" data-toggle="collapse" onClick={togglePengajuan}>
+                        <li className="nav-item">
+                            <a className="nav-link" data-toggle="collapse" data-target="#collapsePagesPengajuan" aria-expanded="true" aria-controls="collapsePagesPengajuan">
 
                                 <i className="fas fa-fw fa-paper-plane"></i>
                                 <span>Ajukan Komplain</span>
                             </a>
-                            <div id="collapsePagesPengajuan" className={collapsePagePengajuan} aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                            <div id="collapsePagesPengajuan" className="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 
                                 <div className="bg-white py-2 collapse-inner rounded animated--fade-in">
                                     <h6 className="collapse-header">Pengajuan Komplain</h6>
@@ -79,14 +72,14 @@ const UserHomePage = ()=>{
                                     <Link className="collapse-item" to="/user/complain/add/pilihDivisi">Tambah Komplain</Link>
                                 </div>
                             </div>
-                        </ListLink> 
+                        </li> 
                         
-                        <ListLink equal="/user/complain/solved">
+                        <li className="nav-item">
                             <Link className="nav-link" to="/user/complain/solved">
                             <i className="fas fa-fw fa-envelope-open"></i>
                                 <span>Penyelesaian Komplain Diterima</span>
                             </Link>
-                        </ListLink>
+                        </li>
                         {/*  Divider */}
                         <hr className="sidebar-divider"/>
 
@@ -95,20 +88,20 @@ const UserHomePage = ()=>{
                             Komplain Diterima
                         </div>
  
-                        <ListLink equal="/user/complained/listComplained">
+                        <li className="nav-item">
                             <Link className="nav-link" to="/user/complained/listComplained">
                                 <i className="fas fa-fw fa-list"></i>
                                 <span>Daftar Komplain</span>
                             </Link>
-                        </ListLink>
+                        </li>
 
-                        <ListLink equal="/user/complained/penugasan">
-                            <a className="nav-link" onClick={togglePenyelesaianKomplain} data-toggle="collapse" >
+                        <li className="nav-item">
+                            <a className="nav-link" data-toggle="collapse" data-target="#collapsePagesPenyelesaianKomplain" aria-expanded="true" aria-controls="collapsePagesPenyelesaianKomplain">
 
                                 <i className="fas fa-fw fa-inbox"></i>
                                 <span>Penyelesaian Komplain Diajukan</span>
                             </a>
-                            <div id="collapsePagesPenyelesaianKomplain" className={collapsePagesPenyelesaianKomplain}aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                            <div id="collapsePagesPenyelesaianKomplain" className="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 
                                 <div className="bg-white py-2 collapse-inner rounded animated--fade-in">
                                     <h6 className="collapse-header">Penyelesaian Komplain</h6>
@@ -116,13 +109,13 @@ const UserHomePage = ()=>{
                                     <Link className="collapse-item" to="/user/complained/done">Done</Link>
                                 </div>
                             </div>
-                        </ListLink>
+                        </li>
                         
-                        <ListLink equal="/user/complained/penyelesaian"> 
+                        <li className="nav-item"> 
                             <Link className="nav-link" to="/user/complained/penyelesaian">
                                 <i className="fas fa-fw fa-wrench"></i>
                             <span>Komplain Ditugaskan</span></Link>
-                        </ListLink>
+                        </li>
                         <li className="nav-item active">
                             <div className="nav-link btn-danger mt-5 text-center" onClick={confirmLogout}>     
                                 LOGOUT 
