@@ -24,7 +24,7 @@ const UserAddComplainPilihDivisi= ()=>{
             </div>
             <div className="row mt-4">
                 <div className="col">
-                    <Button onClick={moveToPilihTopik}>Berikutnya</Button> 
+                    <Button onClick={moveToPilihTopik} backgroundColor="primary">Berikutnya</Button> 
                 </div>
             </div> 
         </div>
@@ -62,7 +62,7 @@ const UserAddComplainPilihTopik = ()=>{
             <div className="row mt-4">
                 <div className="col">
                     <Button href="/user/complain/add/pilihDivisi" backgroundColor="danger">Sebelumnya</Button> 
-                    <Button onClick={moveToPilihSubTopik1} className="ml-2">Berikutnya</Button> 
+                    <Button onClick={moveToPilihSubTopik1} className="ml-2" backgroundColor="primary">Berikutnya</Button> 
                 </div>
             </div> 
         </div>
@@ -108,7 +108,7 @@ const UserAddComplainPilihSubtopik1 = ()=>{
             <div className="row mt-4">
                 <div className="col">
                     <Button href={`/user/complain/add/pilihTopik/${divisi}`} backgroundColor="danger">Sebelumnya</Button> 
-                    <Button onClick={moveToPilihSubTopik2} className="ml-2">Berikutnya</Button> 
+                    <Button onClick={moveToPilihSubTopik2} className="ml-2" backgroundColor="primary">Berikutnya</Button> 
                 </div>
             </div> 
         </div>

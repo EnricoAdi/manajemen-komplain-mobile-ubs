@@ -1,5 +1,8 @@
  
 const LoginPage = (param)=>{      
+    
+    const mainContext = useContext(MainContext);
+
     const history = useHistory(); 
     const [noInduk,setnoInduk] = useState(""); 
 
@@ -40,10 +43,12 @@ const LoginPage = (param)=>{
             "password" : pass,
         }
         let res = await LoginViewModel.login(data);
-        if(!res.status){
-            alert("Login gagal, "+res.message);
-            $('#popUpModal').modal('show');
+        if(!res.status){  
             setisLoading(false); 
+            mainContext.setModalContext({
+                open : true,
+                message : "Login gagal, "+res.message
+            }) 
         }else{ 
             setisLoading(false);
             console.log(res.hak_akses)
@@ -64,7 +69,7 @@ const LoginPage = (param)=>{
                 //     history.push("admin")  
             }
         }
-    } 
+    }  
     return (
         <div style={bodyStyle}>  
             <section className="pt-4">

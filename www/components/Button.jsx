@@ -1,7 +1,12 @@
 const Button = (btnProps)=>{
-    let {type,id,icon,backgroundColor,href, btnStyle, onClick, className} = btnProps;
+    let {type,id,icon, href, btnStyle, className} = btnProps;
 
     type==="" ? type="button" : type=type; 
+    let backgroundColor = btnProps.backgroundColor;
+    
+    if(!backgroundColor){
+        backgroundColor = "primary";
+    }
     className = className+" btn btn"+backgroundColor; 
     icon!="" ? icon = <i className={icon}></i> : "";
     
@@ -35,7 +40,7 @@ const Button = (btnProps)=>{
             break;
         default:
             backgroundColor = color.PRIMARY;
-    } 
+    }  
     btnStyle = {
         ...btnStyle,
         color:"white",
@@ -44,19 +49,19 @@ const Button = (btnProps)=>{
         paddingTop:"10px",
         paddingBottom:"10px",
         backgroundColor: backgroundColor 
-    };   
+    };    
     return(
         <>  
             {href!=null && 
                 <Link to={href}> 
-                        <button  type={type} id={id} className={className} style={btnStyle} onClick={onClick}>  
+                        <button  type={type} id={id} className={className} style={btnStyle}>  
                             {icon}
                             {btnProps.children}
                         </button>
                 </Link> 
             }
             {href==null&& 
-            <button type={type} id={id} className={className} style={btnStyle} onClick={onClick}>  
+            <button type={type} id={id} className={className} style={btnStyle}>  
                 {icon}
                 {btnProps.children}
             </button>

@@ -1,6 +1,4 @@
-const UserHomePage = ()=>{ 
-    const [collapsePagePengajuan,setCollapsePagePengajuan] = useState("collapse");
-    const [collapsePagesPenyelesaianKomplain,setCollapsePagesPenyelesaianKomplain] = useState("collapse");
+const UserHomePage = ()=>{  
     const [sidebarClass,setSidebarClass] = useState("navbar-nav bg-gradient-primary sidebar sidebar-dark accordion");
      
     const history = useHistory();  
@@ -22,20 +20,13 @@ const UserHomePage = ()=>{
             history.push("/");
         }
     }
-
-    // const togglePenyelesaianKomplain = ()=>{
-    //     if( collapsePagesPenyelesaianKomplain=="collapse"){
-    //         setCollapsePagesPenyelesaianKomplain("collapse show")
-    //     }else{
-    //         setCollapsePagesPenyelesaianKomplain("collapse")
-    //     }
-    // }
+ 
   
     return( 
          <div id="wrapper">
 
                     {/*  Sidebar */} 
-                        <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+                        <ul className={sidebarClass} id="accordionSidebar">
                         {/*  Sidebar - Brand */}
                         <a className="sidebar-brand d-flex align-items-center justify-content-center mt-2">
                             <img src="./img/logo.png" alt="ubs" className="rounded-3 w-100 mt-4"/>
@@ -112,7 +103,7 @@ const UserHomePage = ()=>{
                         </li>
                         
                         <li className="nav-item"> 
-                            <Link className="nav-link" to="/user/complained/penyelesaian">
+                            <Link className="nav-link active" to="/user/complained/penyelesaian">
                                 <i className="fas fa-fw fa-wrench"></i>
                             <span>Komplain Ditugaskan</span></Link>
                         </li>
@@ -142,7 +133,7 @@ const UserHomePage = ()=>{
                             <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                                 {/*  Sidebar Toggle (Topbar) */}
-                                <button onClick={toggleSidebar} className="btn btn-link d-md-none rounded-circle mr-3">
+                                <button onClick={toggleSidebar} className="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggle">
                                     <i className="fa fa-bars"></i>
                                 </button>
 
@@ -199,8 +190,7 @@ const UserHomePage = ()=>{
             {/* <!-- End of Page Wrapper --> */}
         
             {/* <!-- Scroll to Top Button--> */}
-            <ScrollToTopButton/>
-         
+            <ScrollToTopButton/> 
             </div> 
     )
 }
