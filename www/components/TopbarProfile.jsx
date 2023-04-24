@@ -15,17 +15,17 @@ const TopbarProfile = ()=>{
         }
     }
     return( 
-        <ul className="navbar-nav ml-auto" onClick={clickProfile}>
+        <ul className="navbar-nav ml-auto">
             <div className="topbar-divider d-none d-sm-block"></div>
             {/*  Nav Item - User Information */}
-            <div className="nav-item dropdown no-arrow" >
-                <div className="nav-link dropdown-toggle" id="userDropdown"  >
+            <li className="nav-item dropdown no-arrow" >
+                <a className="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                     <span className="mr-2 d-none d-lg-inline text-gray-600 small"> {user.nama} </span>
                     <img className="img-profile rounded-circle" src="./img/undraw_profile.svg"/>
-                </div>
+                </a>
                 {/*  Dropdown - User Information */}
-                {clicked && 
-                <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in show"  >
+               
+                <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown" >
                     <div className="dropdown-item">
                         {user.nomor_induk} - {user.nama}
                     </div>
@@ -36,11 +36,11 @@ const TopbarProfile = ()=>{
                         <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         Logout
                     </div>
-                </div>} 
+                </div>
                  
-            </div> 
+            </li> 
     </ul>
-
-   
+ 
     );
 }  
+
