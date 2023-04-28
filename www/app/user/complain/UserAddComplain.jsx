@@ -24,7 +24,7 @@ const UserAddComplainPilihDivisi= ()=>{
             </div>
             <div className="row mt-4">
                 <div className="col">
-                    <Button onClick={moveToPilihTopik} backgroundColor="primary">Berikutnya</Button> 
+                    <Button onclick={moveToPilihTopik} backgroundColor="primary">Berikutnya</Button> 
                 </div>
             </div> 
         </div>
@@ -62,7 +62,7 @@ const UserAddComplainPilihTopik = ()=>{
             <div className="row mt-4">
                 <div className="col">
                     <Button href="/user/complain/add/pilihDivisi" backgroundColor="danger">Sebelumnya</Button> 
-                    <Button onClick={moveToPilihSubTopik1} className="ml-2" backgroundColor="primary">Berikutnya</Button> 
+                    <Button onclick={moveToPilihSubTopik1} className="ml-2" backgroundColor="primary">Berikutnya</Button> 
                 </div>
             </div> 
         </div>
@@ -108,7 +108,7 @@ const UserAddComplainPilihSubtopik1 = ()=>{
             <div className="row mt-4">
                 <div className="col">
                     <Button href={`/user/complain/add/pilihTopik/${divisi}`} backgroundColor="danger">Sebelumnya</Button> 
-                    <Button onClick={moveToPilihSubTopik2} className="ml-2" backgroundColor="primary">Berikutnya</Button> 
+                    <Button onclick={moveToPilihSubTopik2} className="ml-2" backgroundColor="primary">Berikutnya</Button> 
                 </div>
             </div> 
         </div>
@@ -166,7 +166,7 @@ const UserAddComplainPilihSubtopik2 = ()=>{
             <div className="row mt-4">
                 <div className="col">
                     <Button href={`/user/complain/add/pilihSubtopik1/${divisi}/${topik}`} backgroundColor="danger">Sebelumnya</Button> 
-                    <Button onClick={moveToPilihLampiran} className="ml-2">Berikutnya</Button> 
+                    <Button onclick={moveToPilihLampiran} className="ml-2">Berikutnya</Button> 
                 </div>
             </div>
         </div>
@@ -220,7 +220,7 @@ const UserAddComplainPilihLampiran = ()=>{
             <div className="row mt-2">
                 <div className="col">
                 <label className="form-label">Unggah Lampiran (.jpg, .png, .pdf, .docx, .xlsx, .txt)</label>
-                <input type="file" className="form-control" name="lampiran[]" style={{paddingTop:"30px", paddingLeft:"20px", height:"100px"}} multiple/></div>
+                <input type="file" className="form-control" name="lampiran[]" style={{paddingTop:"30px", paddingLeft:"20px", height:"100px"}}  accept=".jpg,.png,.pdf,.docx,.xls,.xlsx,.txt" multiple/></div>
                 <div className="col"></div>
             </div>
             <div className="row mt-4">

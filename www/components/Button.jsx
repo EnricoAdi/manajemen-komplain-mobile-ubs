@@ -1,5 +1,5 @@
 const Button = (btnProps)=>{
-    let {type,id,icon, href, btnStyle, className} = btnProps;
+    let {type,id,icon, href, btnStyle, className, onclick} = btnProps;
 
     type==="" ? type="button" : type=type; 
     let backgroundColor = btnProps.backgroundColor;
@@ -61,7 +61,7 @@ const Button = (btnProps)=>{
                 </Link> 
             }
             {href==null&& 
-            <button type={type} id={id} className={className} style={btnStyle}>  
+            <button type={type} id={id} className={className} style={btnStyle} onClick={onclick}>  
                 {icon}
                 {btnProps.children}
             </button>

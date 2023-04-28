@@ -1,8 +1,8 @@
-const TopbarProfile = ()=>{ 
-    const history = useHistory(); 
-    // console.log(UserModel.get());
+const TopbarProfile = (props)=>{
+
+    const {user} = props; 
+    const history = useHistory();  
     const [clicked,setClicked] = useState(false); 
-    const user = UserModel.get(); 
     function clickProfile(){ 
         setClicked(!clicked);
     }
@@ -15,12 +15,13 @@ const TopbarProfile = ()=>{
         }
     }
     return( 
-        <ul className="navbar-nav ml-auto">
+        <ul className="navbar-nav ml-auto"> 
+        <span className="  mt-4 d-lg-inline text-gray-600 small" style={{paddingTop:"3px"}}> {user.nama} </span>
             <div className="topbar-divider d-none d-sm-block"></div>
             {/*  Nav Item - User Information */}
             <li className="nav-item dropdown no-arrow" >
                 <a className="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                    <span className="mr-2 d-none d-lg-inline text-gray-600 small"> {user.nama} </span>
+                    {/* <span className="mr-2 d-none d-lg-inline text-gray-600 small"> {user.nama} </span> */}
                     <img className="img-profile rounded-circle" src="./img/undraw_profile.svg"/>
                 </a>
                 {/*  Dropdown - User Information */}

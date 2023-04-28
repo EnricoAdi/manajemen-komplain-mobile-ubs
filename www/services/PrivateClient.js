@@ -13,7 +13,7 @@ const PrivateClient = {
                 }
             }).then((response) => response.json())
             .then((response) => {return response}); 
-            console.log(API_URL+extended_url)
+            // console.log(API_URL+extended_url)
  
             return result;
         } catch (error) {

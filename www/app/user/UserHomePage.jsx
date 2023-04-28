@@ -1,8 +1,17 @@
 const UserHomePage = ()=>{  
     const [sidebarClass,setSidebarClass] = useState("navbar-nav bg-gradient-primary sidebar sidebar-dark accordion");
-     
+    const [user,setUser] = useState({
+        token : '123',
+        divisi : 'divisi',
+        nama : 'nama',
+        hak_akses : '1',
+        nomor_induk : '123'
+    });
+ 
+
     const history = useHistory();  
     const path = history.location.pathname.toLowerCase().split("/");
+    
 
     // console.log(path)
     const toggleSidebar = ()=>{ 
@@ -20,11 +29,39 @@ const UserHomePage = ()=>{
             history.push("/");
         }
     }
- 
-  
-    return( 
-         <div id="wrapper">
 
+    cekToken = async()=>{ 
+        const res =  await PrivateClient.get('TesVerification/index_get');    
+        return res.status
+    }
+    
+    useEffect(()=>{  
+        setUser(UserModel.get())  
+        const userCek = UserModel.get()  
+        if(userCek){  
+            setUser(UserModel.get()) 
+            cekToken().then((res)=>{
+                if(!res){ 
+                    UserModel.logout();  
+                    history.push("/")   
+                }
+            })
+            if(userCek.hak_akses=='2'){ 
+                history.push("/manager")    
+            }
+            if(userCek.hak_akses=='3'){ 
+                history.push("/gm")    
+            }
+            if(userCek.hak_akses==4){  
+                history.push("/admin")    
+            } 
+        }else{ 
+            history.push("/")   
+        } 
+    },[])
+
+    return( 
+         <div id="wrapper"> 
                     {/*  Sidebar */} 
                         <ul className={sidebarClass} id="accordionSidebar">
                         {/*  Sidebar - Brand */}
@@ -137,7 +174,7 @@ const UserHomePage = ()=>{
                                     <i className="fa fa-bars"></i>
                                 </button>
 
-                                <TopbarProfile/>
+                                <TopbarProfile user={user}/>
 
                             </nav>
                             {/*  End of Topbar */}

@@ -1,7 +1,45 @@
  
 const AdminHomePage = () => {
     let logedIn = UserModel.get();
+    const [user,setUser] = useState({
+        token : '123',
+        divisi : 'divisi',
+        nama : 'nama',
+        hak_akses : '1',
+        nomor_induk : '123'
+    });
+ 
+
+    const history = useHistory();  
+    cekToken = async()=>{ 
+        const res =  await PrivateClient.get('TesVerification/index_get');    
+        return res.status
+    }
     
+    useEffect(()=>{  
+        setUser(UserModel.get())  
+        const userCek = UserModel.get()  
+        if(userCek){  
+            setUser(UserModel.get()) 
+            cekToken().then((res)=>{
+                if(!res){ 
+                    UserModel.logout();  
+                    history.push("/")   
+                }
+            })
+            if(userCek.hak_akses=='2'){ 
+                history.push("/manager")    
+            }
+            if(userCek.hak_akses=='3'){ 
+                history.push("/gm")    
+            }
+            if(userCek.hak_akses==1){  
+                history.push("/user")    
+            } 
+        }else{ 
+            history.push("/")   
+        } 
+    },[])
     return(
         <div id="wrapper">
  
@@ -20,7 +58,7 @@ const AdminHomePage = () => {
             </li>
 
             <li className="nav-item active">
-                <a className="nav-link" href="<?= base_url(); ?>Admin/Dashboard" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                <a className="nav-link" href="Admin/Dashboard" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
 
                     <i className="fas fa-fw fa-book"></i>
                     <span>Master</span>
@@ -70,7 +108,7 @@ const AdminHomePage = () => {
  
                     
                     
-                    <TopbarProfile/>
+                    <TopbarProfile user={user}/>
 
                 </nav> 
                 <div className="container-fluid">

@@ -1,7 +1,7 @@
  
 const LoginPage = (param)=>{      
     
-    const mainContext = useContext(MainContext);
+    const mainContext = useContext(MainContext); 
 
     const history = useHistory(); 
     const [noInduk,setnoInduk] = useState(""); 
@@ -50,8 +50,7 @@ const LoginPage = (param)=>{
                 message : "Login gagal, "+res.message
             }) 
         }else{ 
-            setisLoading(false);
-            console.log(res.hak_akses)
+            setisLoading(false); 
             switch(res.hak_akses){
                 case '1': 
                     history.push("user")   
@@ -70,6 +69,27 @@ const LoginPage = (param)=>{
             }
         }
     }  
+    useEffect(()=>{ 
+        const userCek = UserModel.get() 
+        if(userCek){ 
+            switch(userCek.hak_akses){
+                case '1': 
+                    history.push("user")   
+                    break;
+                case '2': 
+                    history.push("manager")   
+                    break;
+                case '3': 
+                    history.push("gm")  
+                    break;
+                case '4':  
+                    history.push("admin")  
+                    break; 
+            }
+        } 
+    
+         
+    },[]) 
     return (
         <div style={bodyStyle}>  
             <section className="pt-4">
