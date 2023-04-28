@@ -8341,3 +8341,9 @@ h1, h2, h3, h4, h5,
         border: 1px solid transparent;
         background: #e3b04b;
         color: #fff; }
+ .boxCard{ 
+  transition: box-shadow .3s;
+ }
+ .boxCard:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}

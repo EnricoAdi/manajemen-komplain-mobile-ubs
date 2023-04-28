@@ -1,7 +1,7 @@
 const Card1 = (props)=>{
-    const {judul,isi,icon,warna} = props;
+    const {judul,isi,icon,warna, onClick} = props;
     return(
-        <div className={'card shadow h-100 py-2 border-left-'+warna}>
+        <div className={'card shadow h-100 py-2 border-left-'+warna} onClick={onClick}>
             <div className='card-body'>
             <div className='row no-gutters align-items-center'>
                 <div className='col mr-2'>

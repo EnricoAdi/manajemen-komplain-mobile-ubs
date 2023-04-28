@@ -21,11 +21,11 @@ const UserListComplain = ()=>{
             res.data.map((item)=>{
                 return {
                     no_komplain: item.NO_KOMPLAIN,
-                    tgl_komplain: item.TGL_TERBIT,
+                    tgl_komplain: "Tanggal Komplain : "+item.TGL_TERBIT,
                     topik: item.TOPIK,
                     subtopik2: item.SUB_TOPIK2,
                     deskripsi_masalah: item.DESKRIPSI_MASALAH,
-                    divisi: item.NAMA_DIVISI,
+                    divisi: "Dikomplain : "+item.NAMA_DIVISI,
                     status: item.STATUS
                 }
             }) 
