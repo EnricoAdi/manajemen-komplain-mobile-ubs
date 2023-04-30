@@ -181,7 +181,10 @@ const UserHomePage = ()=>{
 
                             {/*  Begin Page Content */} 
                             <div className="container-fluid"> 
-                                <Switch>  
+                                <Switch>   
+                                    <Route exact path="/user/complain/detail/:no_komplain">
+                                        <UserDetailComplain/>
+                                    </Route> 
                                     <Route path="/user/complain/add/">
                                         <UserAddComplain/>
                                     </Route> 

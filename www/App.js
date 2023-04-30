@@ -1,6 +1,4 @@
-const ManagerPage = () => <h1>Manager</h1> 
- 
-
+const ManagerPage = () => <h1>Manager</h1>  
 
 const App = ()=> {        
     
@@ -18,36 +16,38 @@ const App = ()=> {
         } 
     },[])
     return (
-        <div className="modal-open">   
-            <MainContext.Provider value={{modalContext,setModalContext}}> 
-                <UserContext.Provider value={{user,setUser}}> 
-                        <HashRouter>    
-                            <Switch>   
-                                <Route path="/user">
-                                    <UserHomePage/>
-                                </Route> 
-                                <Route path="/admin">
-                                    <AdminHomePage/>
-                                </Route>
-                                <Route path="/gm">
-                                    <LoginPage/>
-                                </Route>
-                                <Route path="/manager">
-                                    <ManagerPage/>
-                                </Route>
-                                <Route exact path="/">
-                                    <LoginPage/>
-                                </Route>   
-                                <Route>
-                                    <Error404Page/>
-                                </Route>
-                            </Switch>  
-                        </HashRouter>   
+        <div className="modal-open"> 
+            <React.Suspense fallback={<h1>Loading...</h1>}> 
+                <MainContext.Provider value={{modalContext,setModalContext}}> 
+                    <UserContext.Provider value={{user,setUser}}> 
+                            <HashRouter>    
+                                <Switch>   
+                                    <Route path="/user">
+                                        <UserHomePage/>
+                                    </Route> 
+                                    <Route path="/admin">
+                                        <AdminHomePage/>
+                                    </Route>
+                                    <Route path="/gm">
+                                        <LoginPage/>
+                                    </Route>
+                                    <Route path="/manager">
+                                        <ManagerPage/>
+                                    </Route>
+                                    <Route exact path="/">
+                                        <LoginPage/>
+                                    </Route>   
+                                    <Route>
+                                        <Error404Page/>
+                                    </Route>
+                                </Switch>  
+                            </HashRouter>   
 
-                        {modalContext.open &&<Modal message={modalContext.message} />  }
-                        
-                </UserContext.Provider>
-            </MainContext.Provider>
+                            {modalContext.open &&<Modal message={modalContext.message} />  }
+                            
+                    </UserContext.Provider>
+                </MainContext.Provider>
+            </React.Suspense>  
         </div>
     )
 }

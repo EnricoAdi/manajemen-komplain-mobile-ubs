@@ -1,6 +1,7 @@
  
 const UserListComplain = ()=>{   
     const mainContext = useContext(MainContext);
+    const history = useHistory();
     const [isLoading,setisLoading] = useState(false); 
     const [data, setData] = useState([
         {
@@ -10,7 +11,7 @@ const UserListComplain = ()=>{
             subtopik2: 'Kurang bersih',
             deskripsi_masalah: 'deskripsi masalah',
             divisi : 'asd',
-            status: 'aktif'
+            status: 'aktif' 
         } 
     ]); 
     fetchComplain = async ()=>{ 
@@ -39,6 +40,9 @@ const UserListComplain = ()=>{
         history.push("/");
       }
     }
+    async function moveToDetail(no_komplain){  
+        history.push("/user/complain/detail/"+no_komplain)
+    }
     useEffect(()=>{ 
         setisLoading(true)
         fetchComplain()
@@ -52,7 +56,7 @@ const UserListComplain = ()=>{
                 <Loading color="primary"/>
             </div> }
             {!isLoading && data.map((item,index)=>{ 
-                return <ComplainCard complain={item} key={index}/>
+                return <ComplainCard complain={item} key={index} onClick={()=>moveToDetail(item.no_komplain)}/>
             })}
             {!isLoading && data.length < 1  && <div className="mt-4">
             <Card1 judul="Belum Ada Komplain Diajukan" isi="" icon="" warna="primary"/>
