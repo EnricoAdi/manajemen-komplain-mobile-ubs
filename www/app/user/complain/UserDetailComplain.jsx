@@ -50,11 +50,17 @@ const UserDetailComplain = ()=>{
             setisLoading(true)
             const res =  await PrivateClient.get('/User/Complain/Detail/Delete/index_get/'+no_komplain);   
             if(res.data!=-1){ 
-                setisLoading(false)
-                alert(res.message)
+                setisLoading(false) 
+                mainContext.setModalContext({
+                    open : true,
+                    message : res.message
+                }) 
                 history.push("/user/complain/list")
-            }else{
-                alert("Komplain gagal dihapus")
+            }else{ 
+                mainContext.setModalContext({
+                    open : true,
+                    message : "Komplain gagal dihapus"
+                }) 
             }
         }
     }
@@ -65,7 +71,7 @@ const UserDetailComplain = ()=>{
     return(
         <>
             <PageTitle>Detail Komplain</PageTitle>
-            <Button icon="fas fa-fw fa-step-backward" backgroundColor="danger" href="/user/complain/list">Back</Button>
+            <Button icon="fas fa-fw fa-step-backward" backgroundColor="danger" href="/user/complain/list">Kembali</Button>
             
                 {isLoading &&<div className="mt-4"> 
                     <Loading color="primary"/>
@@ -83,8 +89,7 @@ const UserDetailComplain = ()=>{
                         <div className="col">
                             <label htmlFor="" className="form-label">Status : {data.status} </label> 
                         </div>
-                    </div>
-                    {!isLoading && 
+                    </div> 
                     <div className="row">
                         <div className="col">
                             <label htmlFor="user" className="form-label">Tanggal Kejadian</label>
@@ -102,7 +107,7 @@ const UserDetailComplain = ()=>{
                             <label htmlFor="" className="form-label mt-4">Subtopik 2</label>
                             <input type="text" className="form-control" id="subtopik2" defaultValue={data.subtopik2} disabled />
                         </div>
-                    </div>}
+                    </div> 
                     <div className="row">
                         <div className="col">
                             <label htmlFor="" className="form-label mt-4">Deskripsi</label>

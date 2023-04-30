@@ -1,5 +1,6 @@
 const UserListComplained = ()=>{ 
     const mainContext = useContext(MainContext);
+    const history = useHistory();
     const [isLoading,setisLoading] = useState(false); 
     const [data, setData] = useState([
         {
@@ -38,8 +39,8 @@ const UserListComplained = ()=>{
           history.push("/");
         }
       }
-    moveTo = ()=>{
-        alert('move to')
+    moveTo = (no_komplain)=>{
+        history.push("/user/complained/verifikasi/"+no_komplain)
     }
     useEffect(()=>{ 
         setisLoading(true)
@@ -54,7 +55,7 @@ const UserListComplained = ()=>{
                     <Loading color="primary"/>
                 </div> }
                 {!isLoading && data.map((item,index)=>{ 
-                    return <ComplainCard complain={item} key={index} onClick={moveTo}/>
+                    return <ComplainCard complain={item} key={index} onClick={()=>moveTo(item.no_komplain)}/>
                 })}
                 {!isLoading && data.length < 1  && <div className="mt-4">
                 <Card1 judul="Belum Ada Komplain Mendatang" isi="" icon="" warna="primary"/>
