@@ -59,7 +59,7 @@ const UserDashboard = ()=>{
                                 else if(item.STATUS == "CLOSE"){
                                     color = "danger"
                                 }
-                                return <Link to={`User/Complain/Detail/index/${item.NO_KOMPLAIN}`} key={index}>
+                                return <Link to={`/user/complain/detail/${item.NO_KOMPLAIN}`} key={index}>
                                             <div className='card shadow h-100 py-2 mr-3 mt-3' style={{width:"200px"}}>
                                                 <div className='card-body'>
                                                     <div className='row no-gutters align-items-center'>

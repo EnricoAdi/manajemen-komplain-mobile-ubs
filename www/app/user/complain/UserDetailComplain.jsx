@@ -12,11 +12,13 @@ const UserDetailComplain = ()=>{
             subtopik2: 'Kurang bersih',
             deskripsi: 'deskripsi masalah', 
             status: 'OPEN',
-            penugasan :''
+            penugasan :'',
+            lampiran : [],
+            url : "",
         } 
     ]); 
     fetchComplain = async ()=>{ 
-    const res =  await PrivateClient.get('/User/Complain/Detail/index_get/'+no_komplain);    
+    const res =  await PrivateClient.get('/User/Complain/Detail/Index/index_get/'+no_komplain);    
       if(res.status){
         setisLoading(false) 
         setData( 
@@ -28,9 +30,11 @@ const UserDetailComplain = ()=>{
                     subtopik2: res.data.SUB_TOPIK2+ " - " + res.data.S2DESKRIPSI,
                     deskripsi: res.data.FEEDBACK.DESKRIPSI_MASALAH, 
                     status: res.data.STATUS,
-                    penugasan : res.penugasan
+                    lampiran: res.data.LAMPIRAN,
+                    penugasan : res.penugasan,
+                    url : res.url
                 } 
-        ) 
+        )  
       }else{  
         UserModel.logout();  
         mainContext.setModalContext({
@@ -41,10 +45,17 @@ const UserDetailComplain = ()=>{
       }
     }
     async function confirmDeleteComplain(){ 
-        let ask = window.confirm("Apakah anda yakin ingin menghapus komplain "+no_komplain+" ?")
-        if(ask){
-            alert("deleted")
-            history.push("/user/complain/list")
+        let ask = window.confirm("Apakah anda yakin ingin menghapus komplain "+no_komplain+" ? (Anda tidak bisa mengembalikan data yang telah dihapus)")
+        if(ask){ 
+            setisLoading(true)
+            const res =  await PrivateClient.get('/User/Complain/Detail/Delete/index_get/'+no_komplain);   
+            if(res.data!=-1){ 
+                setisLoading(false)
+                alert(res.message)
+                history.push("/user/complain/list")
+            }else{
+                alert("Komplain gagal dihapus")
+            }
         }
     }
     useEffect(()=>{ 
@@ -80,16 +91,16 @@ const UserDetailComplain = ()=>{
 
                             <input type="text" name="tanggal" id="tanggal" className="form-control" defaultValue={data.tgl_kejadian} disabled />
 
-                            <label htmlFor="subtopik2" className="form-label mt-4">Subtopik 2</label>
-                            <input type="text" id="subtopik2" className="form-control" defaultValue={data.subtopik2} disabled/>
+                            <label htmlFor="subtopik2" className="form-label mt-4">Subtopik 1</label>
+                            <input type="text" id="subtopik1" className="form-control" defaultValue={data.subtopik1} disabled/>
 
                         </div>
                         <div className="col">
                             <label htmlFor="" className="form-label">Topik</label>
                             <input type="text" className="form-control" id="topik" defaultValue={data.topik} disabled/>
 
-                            <label htmlFor="" className="form-label mt-4">Subtopik 1</label>
-                            <input type="text" className="form-control" id="subtopik1" defaultValue={data.subtopik1} disabled />
+                            <label htmlFor="" className="form-label mt-4">Subtopik 2</label>
+                            <input type="text" className="form-control" id="subtopik2" defaultValue={data.subtopik2} disabled />
                         </div>
                     </div>}
                     <div className="row">
@@ -100,22 +111,18 @@ const UserDetailComplain = ()=>{
                     </div>
                     <div className="row">
                         <div className="col"> 
-                            <br/>
-                            {/* <?php
-                                $counter = 1;
-                                foreach($komplain->LAMPIRAN as $lampiran){
-                                    
-                                    echo '<a href="'.base_url().'uploads/'.$lampiran->KODE_LAMPIRAN.'" target="_blank">Lampiran '.$counter.'</a><br>';
-                                    $counter = $counter + 1;
-                                }
-                            ?> */}
+                            <br/> 
+                             {data.lampiran && data.lampiran.map((item,index)=>{
+                                return <div key={index}><a href={data.url+"uploads/"+item.KODE_LAMPIRAN} target="_blank">Lampiran {index+1}</a></div>
+                            })}   
                         </div>
                     </div>
                     <div className="row mt-4">
-                        <div className="col"> 
-                            <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={confirmDeleteComplain}>Hapus</Button> 
-                            <Button icon="fas fa-fw fa-pen mr-2" className="ml-2">Ubah</Button> 
-                        </div> 
+                    {!isLoading && 
+                    <div className="col"> 
+                        <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={confirmDeleteComplain}>Hapus</Button> 
+                        <Button icon="fas fa-fw fa-pen mr-2" className="ml-2">Ubah</Button> 
+                    </div> }
                     </div>
                 </div>
         </>
