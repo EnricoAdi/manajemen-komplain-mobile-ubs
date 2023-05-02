@@ -13,8 +13,7 @@ const UserDetailComplain = ()=>{
             deskripsi: 'deskripsi masalah', 
             status: 'OPEN',
             penugasan :'',
-            lampiran : [],
-            url : "",
+            lampiran : []
         } 
     ]); 
     fetchComplain = async ()=>{ 
@@ -31,8 +30,7 @@ const UserDetailComplain = ()=>{
                     deskripsi: res.data.FEEDBACK.DESKRIPSI_MASALAH, 
                     status: res.data.STATUS,
                     lampiran: res.data.LAMPIRAN,
-                    penugasan : res.penugasan,
-                    url : res.url
+                    penugasan : res.penugasan 
                 } 
         )  
       }else{  
@@ -64,9 +62,13 @@ const UserDetailComplain = ()=>{
             }
         }
     }
+    function onDeviceReady() {
+        alert("hello");
+    }
     useEffect(()=>{ 
         setisLoading(true)
         fetchComplain()
+        // document.addEventListener('deviceready',)
     },[])
     return(
         <>
@@ -118,17 +120,18 @@ const UserDetailComplain = ()=>{
                         <div className="col"> 
                             <br/> 
                              {data.lampiran && data.lampiran.map((item,index)=>{
-                                return <div key={index}><a href={data.url+"uploads/"+item.KODE_LAMPIRAN} target="_blank">Lampiran {index+1}</a></div>
+                                return <div key={index}><a href={UNIVERSAL_URL+"uploads/"+item.KODE_LAMPIRAN} target="_blank">Lampiran {index+1}</a></div>
                             })}   
                         </div>
                     </div>
-                    <div className="row mt-4">
                     {!isLoading && 
-                    <div className="col"> 
-                        <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={confirmDeleteComplain}>Hapus</Button> 
-                        <Button icon="fas fa-fw fa-pen mr-2" className="ml-2">Ubah</Button> 
-                    </div> }
+                    <div className="row mt-4">
+                        <div className="col"> 
+                            <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={confirmDeleteComplain}>Hapus</Button> 
+                            <Button icon="fas fa-fw fa-pen mr-2" className="ml-2">Ubah</Button> 
+                        </div>  
                     </div>
+                        }
                 </div>
         </>
     )
