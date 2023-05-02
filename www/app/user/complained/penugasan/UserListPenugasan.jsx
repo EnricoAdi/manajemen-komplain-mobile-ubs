@@ -1,5 +1,6 @@
 const UserListPenugasan = ()=>{
     const mainContext = useContext(MainContext);
+    const history = useHistory();
     const [isLoading,setisLoading] = useState(false); 
     const [data, setData] = useState([
         {
@@ -50,15 +51,15 @@ const UserListPenugasan = ()=>{
           history.push("/");
         }
       }
-    moveTo = ()=>{
-        alert('move to')
+    moveTo = (no_komplain)=>{
+        history.push("/user/complained/penugasan/add/"+no_komplain)
     }
     useEffect(()=>{ 
         setisLoading(true)
         fetchComplain()
     },[]) 
     return(
-        <div> 
+        <> 
             <PageTitle>Isi Penugasan</PageTitle>
             <Button icon="fas fa-fw fa-check mr-2" href="/user/complained/listComplained">Halaman Verifikasi</Button>
             <div> 
@@ -66,13 +67,13 @@ const UserListPenugasan = ()=>{
                     <Loading color="primary"/>
                 </div> }
                 {!isLoading && data.map((item,index)=>{ 
-                    return <ComplainCard complain={item} key={index} onClick={moveTo} backgroundColor={item.penugasan?"warning":"success"}/>
+                    return <ComplainCard complain={item} key={index} onClick={()=>moveTo(item.no_komplain)} backgroundColor={item.penugasan?"warning":"success"}/>
                 })}
                 {!isLoading && data.length < 1  && <div className="mt-4">
                 <Card1 judul="Belum Ada Komplain Diverifikasi" isi="" icon="" warna="primary"/>
                 </div>}
             </div>
        
-        </div>
+        </>
     )
 }

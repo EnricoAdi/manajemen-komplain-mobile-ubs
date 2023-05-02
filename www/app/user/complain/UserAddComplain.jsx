@@ -471,8 +471,11 @@ const UserAddComplainPilihLampiran = ()=>{
     }
 
     async function sendComplain(){ 
-        if(deskripsi==""){
-            alert("Semua input harus diisi")
+        if(deskripsi==""){ 
+            mainContext.setModalContext({
+                open : true,
+                message : "Semua input harus diisi"
+            }) 
             return;
         }
         setisLoading(true)
@@ -499,8 +502,11 @@ const UserAddComplainPilihLampiran = ()=>{
         }else{
 
             setisLoading(false)
-        }
-        alert(result.message)
+        } 
+        mainContext.setModalContext({
+            open : true,
+            message : result.message
+        }) 
     }
     async function fetchData(){ 
         const res =  await PrivateClient.get(`/User/Complain/Add/PilihLampiran/index_get/${divisiParam}/${topikParam}/${subtopik1Param}/${subtopik2Param}`);    
