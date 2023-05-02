@@ -9,7 +9,8 @@ const UserListPenugasan = ()=>{
             subtopik2: 'Kurang bersih',
             deskripsi_masalah: 'deskripsi masalah',
             divisi : 'asd',
-            status: 'aktif'
+            status: 'aktif',
+            penugasan : "",
         },{
             no_komplain: '12314188',
             tgl_komplain: '12/01/2023', //tanggal kejadian
@@ -17,7 +18,8 @@ const UserListPenugasan = ()=>{
             subtopik2: 'Kurang bersih',
             deskripsi_masalah: 'deskripsi masalah',
             divisi : 'asd',
-            status: 'aktif'
+            status: 'aktif',
+            penugasan : "",
         },
     ]);
     fetchComplain = async ()=>{ 
@@ -33,10 +35,12 @@ const UserListPenugasan = ()=>{
                       subtopik2: item.SUB_TOPIK2,
                       deskripsi_masalah: item.DESKRIPSI_MASALAH,
                       divisi: "Pengirim : "+item.DIVISI_PENGIRIM,
-                      status: item.STATUS
+                      status: item.STATUS,
+                      penugasan : item.PENUGASAN
                   }
               }) 
           )
+          console.log(res.data)
         }else{  
           UserModel.logout();  
           mainContext.setModalContext({
@@ -62,7 +66,7 @@ const UserListPenugasan = ()=>{
                     <Loading color="primary"/>
                 </div> }
                 {!isLoading && data.map((item,index)=>{ 
-                    return <ComplainCard complain={item} key={index} onClick={moveTo}/>
+                    return <ComplainCard complain={item} key={index} onClick={moveTo} backgroundColor={item.penugasan?"warning":"success"}/>
                 })}
                 {!isLoading && data.length < 1  && <div className="mt-4">
                 <Card1 judul="Belum Ada Komplain Diverifikasi" isi="" icon="" warna="primary"/>
