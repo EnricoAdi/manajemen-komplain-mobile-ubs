@@ -13,16 +13,12 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "cordova-android": "^10.1.2",
-    "cordova-plugin-file": "^7.0.0",
-    "cordova-plugin-file-transfer": "^1.7.1"
+    "cordova-android": "^10.1.2"
   },
   "cordova": {
     "platforms": [
       "android"
     ],
-    "plugins": {
-      "cordova-plugin-file-transfer": {}
-    }
+    "plugins": {}
   }
 }
