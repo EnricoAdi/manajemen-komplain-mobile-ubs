@@ -2,7 +2,7 @@ const UserDetailPenyelesaian = ()=>{
     const mainContext = useContext(MainContext);
     const history = useHistory();
     const [isLoading,setisLoading] = useState(false); 
-    const [isLoadingSubmit,setisLoadingSubmit] = useState(false);  
+    const [showingLampiran,setShowingLampiran] = useState("");  
     const {no_komplain} = useParams(); 
     const [komplain, setKomplain] = useState(
         { 
@@ -41,7 +41,8 @@ const UserDetailPenyelesaian = ()=>{
 
     return(
         <>
-            <PageTitle>Detail Komplain Ditugaskan</PageTitle>
+            {showingLampiran=="" && <>
+                 <PageTitle>Detail Komplain Ditugaskan</PageTitle>
             
             <Button icon="fas fa-fw fa-step-backward mr-2" backgroundColor="danger" href={"/user/complained/penyelesaian"}>Kembali</Button> 
 
@@ -84,7 +85,7 @@ const UserDetailPenyelesaian = ()=>{
                         {komplain.lampiran.map((item,index)=>{
                            return <tr key={index}>
                             <td> 
-                                <a href={UNIVERSAL_URL+"uploads/"+item.KODE_LAMPIRAN} target="_blank">Lampiran {index+1}</a>
+                                <div onClick={()=>setShowingLampiran(UNIVERSAL_URL+"uploads/"+item.KODE_LAMPIRAN)} style={{color:"blue"}} target="_blank">Lampiran {index+1}</div>
                             </td>
                            </tr>  
                         })} 
@@ -101,6 +102,8 @@ const UserDetailPenyelesaian = ()=>{
 
             </>
             }
+            </>}
+           {showingLampiran!="" && <FileLoader back={()=>setShowingLampiran("")} fileUrl={showingLampiran}/>}
         </>
 
     )

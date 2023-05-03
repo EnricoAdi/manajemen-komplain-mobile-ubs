@@ -2,6 +2,7 @@ const UserVerifikasiPage = ()=>{
     const mainContext = useContext(MainContext);
     const history = useHistory();
     const [isLoading,setisLoading] = useState(false); 
+    const [showingLampiran,setShowingLampiran] = useState("");  
     const {no_komplain} = useParams();  
     const [data, setData] = useState([
         {
@@ -73,6 +74,9 @@ const UserVerifikasiPage = ()=>{
     },[])
     return (
         <>
+        
+        {showingLampiran=="" && <>
+            
             <PageTitle>Halaman Verifikasi Komplain</PageTitle>
             <Button icon="fas fa-fw fa-step-backward mr-2" backgroundColor="danger" href="/user/complained/listComplained">Kembali</Button> 
                 <div className="mt-4"> 
@@ -109,7 +113,7 @@ const UserVerifikasiPage = ()=>{
                         <div className="col"> 
                             <br/> 
                              {data.lampiran && data.lampiran.map((item,index)=>{
-                                return <div key={index}><a href={data.url+"uploads/"+item.KODE_LAMPIRAN} target="_blank">Lampiran {index+1}</a></div>
+                                return <div key={index}><div onClick={()=>setShowingLampiran(UNIVERSAL_URL+"uploads/"+item.KODE_LAMPIRAN)}  style={{color:"blue"}}>Lampiran {index+1}</div></div>
                             })}   
                         </div>
                     </div>
@@ -127,6 +131,8 @@ const UserVerifikasiPage = ()=>{
                     </div> }
                     </div>
                 </div>
+        </>} 
+           {showingLampiran!="" && <FileLoader back={()=>setShowingLampiran("")} fileUrl={showingLampiran}/>}
         </>
     )
 }
