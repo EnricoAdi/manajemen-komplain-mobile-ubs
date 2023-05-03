@@ -102,7 +102,9 @@ const UserTransferPage = ()=>{
     return (
         <>
             <PageTitle>Transfer Komplain</PageTitle>
+            
             <Button icon="fas fa-fw fa-step-backward mr-2" backgroundColor="danger" href={"/user/complained/verifikasi/"+no_komplain}>Kembali</Button>
+
             <div className="row">
                 <div className="col">
                     <label htmlFor="" className="form-label mt-4">Nomor Feedback : {komplain.NO_KOMPLAIN} </label>

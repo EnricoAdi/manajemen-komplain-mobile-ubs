@@ -197,6 +197,9 @@ const UserHomePage = ()=>{
                                     <Route exact path="/user/complained/listcomplained">
                                         <UserListComplained/>
                                     </Route>
+                                    <Route exact path="/user/complained/penyelesaian/detail/:no_komplain">
+                                        <UserDetailPenyelesaian/>
+                                    </Route>
                                     <Route exact path="/user/complained/penyelesaian">
                                         <UserListPenyelesaianKomplain/>
                                     </Route>

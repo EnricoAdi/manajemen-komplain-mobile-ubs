@@ -1,6 +1,7 @@
 const UserListPenyelesaianKomplain = ()=>{
     const mainContext = useContext(MainContext);
-    const [isLoading,setisLoading] = useState(false); 
+    const [isLoading,setisLoading] = useState(false);
+    const history = useHistory(); 
     const [data, setData] = useState([
         {
             no_komplain: '12314188',
@@ -46,8 +47,8 @@ const UserListPenyelesaianKomplain = ()=>{
           history.push("/");
         }
       }
-    moveTo = ()=>{
-        alert('move to')
+    moveTo = (no_komplain)=>{
+        history.push("/user/complained/penyelesaian/detail/"+no_komplain)
     }
     useEffect(()=>{ 
         setisLoading(true)
@@ -62,7 +63,7 @@ const UserListPenyelesaianKomplain = ()=>{
                     <Loading color="primary"/>
                 </div> }
                 {!isLoading && data.map((item,index)=>{ 
-                    return <ComplainCard complain={item} key={index} onClick={moveTo}/>
+                    return <ComplainCard complain={item} key={index} onClick={()=>moveTo(item.no_komplain)}/>
                 })}
                 {!isLoading && data.length < 1  && <div className="mt-4">
                 <Card1 judul="Belum Ada Komplain Diterima" isi="" icon="" warna="primary"/>

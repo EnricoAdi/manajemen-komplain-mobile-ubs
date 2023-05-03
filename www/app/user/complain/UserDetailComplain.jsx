@@ -16,7 +16,7 @@ const UserDetailComplain = ()=>{
             lampiran : []
         } 
     ]); 
-    fetchComplain = async ()=>{ 
+    async function fetchComplain(){ 
     const res =  await PrivateClient.get('/User/Complain/Detail/Index/index_get/'+no_komplain);    
       if(res.status){
         setisLoading(false) 
@@ -34,12 +34,12 @@ const UserDetailComplain = ()=>{
                 } 
         )  
       }else{  
-        UserModel.logout();  
-        mainContext.setModalContext({
-            open : true,
-            message : "Sesi anda telah habis, silahkan login ulang"
-        }) 
-        history.push("/");
+        // UserModel.logout();  
+        // mainContext.setModalContext({
+        //     open : true,
+        //     message : "Sesi anda telah habis, silahkan login ulang"
+        // }) 
+        // history.push("/");
       }
     }
     async function confirmDeleteComplain(){ 
