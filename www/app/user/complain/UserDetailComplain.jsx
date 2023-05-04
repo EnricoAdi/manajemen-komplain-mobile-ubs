@@ -2,6 +2,7 @@ const UserDetailComplain = ()=>{
     const mainContext = useContext(MainContext);
     const history = useHistory();
     const [isLoading,setisLoading] = useState(false); 
+    const [showingLampiran,setShowingLampiran] = useState("");  
     const {no_komplain} = useParams(); 
     const [data, setData] = useState([
         {
@@ -72,6 +73,8 @@ const UserDetailComplain = ()=>{
     },[])
     return(
         <>
+        {showingLampiran=="" && <>
+            
             <PageTitle>Detail Komplain</PageTitle>
             <Button icon="fas fa-fw fa-step-backward" backgroundColor="danger" href="/user/complain/list">Kembali</Button>
             
@@ -120,7 +123,7 @@ const UserDetailComplain = ()=>{
                         <div className="col"> 
                             <br/> 
                              {data.lampiran && data.lampiran.map((item,index)=>{
-                                return <div key={index}><a href={UNIVERSAL_URL+"uploads/"+item.KODE_LAMPIRAN} target="_blank">Lampiran {index+1}</a></div>
+                                return <div key={index} onClick={()=>setShowingLampiran(UNIVERSAL_URL+"uploads/"+item.KODE_LAMPIRAN)} style={{color: "blue"}}>Lampiran {index+1}</div>
                             })}   
                         </div>
                     </div>
@@ -133,6 +136,8 @@ const UserDetailComplain = ()=>{
                     </div>
                         }
                 </div>
+        </>}
+        {showingLampiran!="" && <FileLoader back={()=>setShowingLampiran("")} fileUrl={showingLampiran}/>}
         </>
     )
 }
