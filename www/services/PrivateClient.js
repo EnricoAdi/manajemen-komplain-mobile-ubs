@@ -45,16 +45,14 @@ const PrivateClient = {
             return error;
         }
      },
-     async post_file(extended_url, payload){ 
-         try{
+     async post_file(extended_url, payload){   
+        try{
              let result = await fetch(API_URL + extended_url, {
                  method: 'POST',
                  headers: {
-                     'Content-Type': 'multipart/form-data; charset=utf-8; boundary='+Math.random().toString().substr(2),
                      'Access-Control-Allow-Origin': '*',
                      'Authorization' :  'Bearer '+storage.get('login_token')
-                 }, 
-                //  body: JSON.stringify(payload),
+                 },  
                  body: payload,
              }).then((response) => response.json())
              .then((response) => { 
