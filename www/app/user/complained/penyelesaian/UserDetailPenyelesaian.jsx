@@ -23,8 +23,7 @@ const UserDetailPenyelesaian = ()=>{
                 nama_penerbit : res.data.DATA_PENERBIT.NAMA,
                 lampiran : res.data.LAMPIRAN,
                 feedback : res.data.FEEDBACK
-            })
-            // console.log(res.data.FEEDBACK)  
+            }) 
           }else{  
             // UserModel.logout();  
             // mainContext.setModalContext({
