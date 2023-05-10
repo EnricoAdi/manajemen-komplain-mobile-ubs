@@ -86,21 +86,21 @@ const UserDetailDoneKomplain = ()=>{
                 <div className="row">
                     <div className="col"> 
                         <label className="form-label mt-2">Masalah Komplain</label>
-                        <textarea className="form-control" value={komplain.DESKRIPSI_MASALAH} disabled />
+                        <textarea className="form-control" rows="4" value={komplain.DESKRIPSI_MASALAH} disabled />
                     </div>
                 </div>
                 <div className="row mt-4">
                     <div className="col">
                         <label htmlFor="user" className="form-label">Akar Masalah</label> 
-                        <textarea className="form-control" name="akar-masalah" value={komplain.FEEDBACK.AKAR_MASALAH} disabled/>  
+                        <textarea className="form-control" rows="10"  name="akar-masalah" value={komplain.FEEDBACK.AKAR_MASALAH} disabled/>  
                     </div> 
                     <div className="col">
                         <label htmlFor="user" className="form-label">Tindakan Preventif</label> 
-                        <textarea className="form-control" name="preventif" value={komplain.FEEDBACK.T_PREVENTIF} disabled/> 
+                        <textarea className="form-control" rows="10"  name="preventif" value={komplain.FEEDBACK.T_PREVENTIF} disabled/> 
                     </div> 
                     <div className="col">
                         <label htmlFor="user" className="form-label">Tindakan Korektif</label> 
-                        <textarea className="form-control" name="korektif" value={komplain.FEEDBACK.T_KOREKTIF} disabled/>
+                        <textarea className="form-control" rows="10" name="korektif" value={komplain.FEEDBACK.T_KOREKTIF} disabled/>
                     </div> 
                 </div>
 

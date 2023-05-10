@@ -66,7 +66,7 @@ const UserListDoneKomplain = ()=>{
                     return <ComplainCard complain={item} key={index} onClick={()=>moveTo(item.no_komplain)}/>
                 })}
                 {!isLoading && data.length < 1  && <div className="mt-4">
-                <Card1 judul="Belum Ada Komplain Diselesaikan" isi="" icon="" warna="primary"/>
+                <Card1 judul="Belum Ada Komplain Untuk Diselesaikan" isi="" icon="" warna="primary"/>
                 </div>}
             </div>
         </div>

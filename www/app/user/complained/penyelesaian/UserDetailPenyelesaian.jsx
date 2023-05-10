@@ -33,6 +33,9 @@ const UserDetailPenyelesaian = ()=>{
             // history.push("/");
           }
         }
+    function moveToPenyelesaian(){ 
+        history.push("/user/complained/penyelesaian/add/"+no_komplain);
+    }
     useEffect(()=>{ 
         setisLoading(true)
         fetchComplain() 
@@ -94,7 +97,7 @@ const UserDetailPenyelesaian = ()=>{
             </div>
             <div className="row mt-4 mb-4">
                 <div className="col"> 
-                        {komplain.feedback.T_KOREKTIF && <Button icon="fas fa-fw fa-plus mr-2">Tambah Penyelesaian</Button>}
+                        {komplain.feedback.T_KOREKTIF && <Button icon="fas fa-fw fa-plus mr-2" onclick={moveToPenyelesaian}>Tambah Penyelesaian</Button>}
                         {!komplain.feedback.T_KOREKTIF && <Button icon="fas fa-fw fa-pen mr-2" backgroundColor="warning">Ubah Penyelesaian</Button> }
                 </div>
             </div>
