@@ -35,6 +35,30 @@ const LoginPage = (param)=>{
         width: "100%"
     }
     
+   async function login (data){   
+    const result =  await PublicClient.post('Auth/index_post',data);   
+    if(result.status){ 
+        UserModel.set({
+          divisi : result.divisi,
+          nama : result.nama,
+          hak_akses : result.hak_akses,
+          nomor_induk : result.nomor_induk,
+          token : result.token
+        }); 
+        return {
+          status : true,
+          hak_akses : result.hak_akses,
+          nama : result.nama,
+          divisi : result.divisi,
+          nomor_induk : result.nomor_induk,
+        } 
+    }  
+        return {
+          status : false,
+          message : result.message
+        };
+    
+}
     const onLogin = async (e)=>{
         e.preventDefault();  
         setisLoading(true);
@@ -42,7 +66,7 @@ const LoginPage = (param)=>{
             "nomor_induk" : noInduk,
             "password" : pass,
         }
-        let res = await LoginViewModel.login(data);
+        let res = await login(data);
         if(!res.status){  
             setisLoading(false); 
             mainContext.setModalContext({
@@ -86,7 +110,7 @@ const LoginPage = (param)=>{
                     history.push("admin")  
                     break; 
             }
-        } 
+        }  
     
          
     },[]) 

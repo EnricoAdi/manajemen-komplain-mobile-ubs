@@ -9,7 +9,7 @@ const PrivateClient = {
                 headers: {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*',
-                    'Authorization' :  'Bearer '+storage.get('login_token')
+                    'Authorization' :  'Bearer '+UserModel.get().token
                 }
             }).then((response) => response.json())
             .then((response) => {return response}); 
@@ -30,7 +30,7 @@ const PrivateClient = {
                 headers: {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*',
-                    'Authorization' :  'Bearer '+storage.get('login_token')
+                    'Authorization' :  'Bearer '+UserModel.get().token
                 }, 
                 body: JSON.stringify(payload)
             }).then((response) => response.json())
@@ -51,7 +51,7 @@ const PrivateClient = {
                  method: 'POST',
                  headers: {
                      'Access-Control-Allow-Origin': '*',
-                     'Authorization' :  'Bearer '+storage.get('login_token')
+                     'Authorization' :  'Bearer '+UserModel.get().token
                  },  
                  body: payload,
              }).then((response) => response.json())

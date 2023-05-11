@@ -1,16 +1,11 @@
 const TopbarProfile = (props)=>{
 
     const {user} = props; 
-    const history = useHistory();  
-    const [clicked,setClicked] = useState(false); 
-    function clickProfile(){ 
-        setClicked(!clicked);
-    }
+    const history = useHistory();   
     function confirmLogout(){
         let confirm = window.confirm("Apakah anda yakin ingin logout?");
         if(confirm){
-            UserModel.logout(); 
-            // alert('Berhasil logout')
+            UserModel.logout();  
             history.push("/");
         }
     }

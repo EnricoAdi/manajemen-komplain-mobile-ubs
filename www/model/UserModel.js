@@ -1,29 +1,15 @@
 const UserModel = { 
-      get(){
-        const token = storage.get('login_token');
-        if(!token){
-            return null;
+      get(){ 
+        const user = storage.get('login')
+        if(!user){
+            return null
         }
-        return {
-            token : storage.get('login_token'),
-            divisi : storage.get('divisi'),
-            nama : storage.get('nama'),
-            hak_akses : storage.get('hak_akses'),
-            nomor_induk : storage.get('nomor_induk')
-        }
+        return user
     },
     set(result){ 
-        storage.set('login_token', result.token);   
-        storage.set('nama', result.nama);   
-        storage.set('divisi', result.divisi);   
-        storage.set('hak_akses', result.hak_akses);  
-        storage.set('nomor_induk', result.nomor_induk);  
+        storage.set('login', result);  
     },
     logout(){
-        storage.remove('login_token');
-        storage.remove('nama');
-        storage.remove('divisi');
-        storage.remove('hak_akses');
-        storage.remove('nomor_induk'); 
+        storage.remove('login'); 
     }
 }
