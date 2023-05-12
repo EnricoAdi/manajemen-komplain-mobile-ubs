@@ -87,7 +87,10 @@ const UserIsiPenugasan = ()=>{
         {!isLoading && 
             <div className="row mt-4">
                 <div className="col">
-                    <label htmlFor="topik" className="form-label">Topik</label>
+                
+                <label htmlFor="" className="form-label">Asal Divisi</label>
+                    <input type="text" className="form-control" name="asalDivisi" value={komplain.NAMADIVISI} disabled/> 
+                    <label htmlFor="topik" className="form-label mt-4">Topik</label>
                     <input type="text" className="form-control" name="topik" value={no_komplain+" - "+komplain.TDESKRIPSI} disabled/>
 
                     <label htmlFor="subtopik1" className="form-label mt-4">Subtopik 1</label>
@@ -95,6 +98,10 @@ const UserIsiPenugasan = ()=>{
 
                     <label htmlFor="subtopik2" className="form-label mt-4">Subtopik 2</label>
                     <input type="text" className="form-control" name="subtopik2" value={komplain.SUB_TOPIK2+" - "+ komplain.S2DESKRIPSI} disabled/>
+
+                    <label htmlFor="" className="form-label mt-4">Tanggal Komplain</label>
+                    <input type="text" className="form-control" name="tanggal" value={komplain.TGL_KEJADIAN} disabled/>
+
 
                     <label htmlFor="user" className="form-label mt-4">User untuk ditugaskan</label>
                     {komplain.PENUGASAN && <select name='user' className='form-control' defaultValue={komplain.PENUGASAN} disabled>
@@ -107,14 +114,8 @@ const UserIsiPenugasan = ()=>{
                             return <option key={index} value={user.NOMOR_INDUK}>{user.NOMOR_INDUK} - {user.NAMA}</option>
                         })}
                     </select>} 
-                </div>
-                <div className="col">
-                    <label htmlFor="" className="form-label">Tanggal Komplain</label>
-                    <input type="text" className="form-control" name="tanggal" value={komplain.TGL_KEJADIAN} disabled/>
 
-                    <label htmlFor="" className="form-label mt-4">Asal Divisi</label>
-                    <input type="text" className="form-control" name="asalDivisi" value={komplain.NAMADIVISI} disabled/> 
-                </div>
+                </div> 
             </div>
     }
 

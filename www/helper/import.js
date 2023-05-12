@@ -3,4 +3,4 @@ const {NavLink, Link, Route, Redirect, HashRouter,BrowserRouter, Switch, useHist
 const withRouter = ReactRouterDOM.withRouter; 
 
 const MainContext = React.createContext();
-const UserContext = React.createContext();
+const RouteContext = React.createContext();

@@ -6,20 +6,12 @@ const App = ()=> {
         open : false,
         message : ""
     })  
-    const [user,setUser] = useState({
-        
-    })
-    useEffect(()=>{
-        const user = UserModel.get();
-        if(user!=null){
-            setUser(user) 
-        } 
-    },[])
+    const [routeContext,setRouteContext] = useState("/")
     return (
         <div className="modal-open"> 
             <React.Suspense fallback={<h1>Loading...</h1>}> 
                 <MainContext.Provider value={{modalContext,setModalContext}}> 
-                    <UserContext.Provider value={{user,setUser}}> 
+                    <RouteContext.Provider value={{routeContext,setRouteContext}}> 
                             <HashRouter>    
                                 <Switch>   
                                     <Route path="/user">
@@ -45,7 +37,7 @@ const App = ()=> {
 
                             {modalContext.open &&<Modal message={modalContext.message} />  }
                             
-                    </UserContext.Provider>
+                    </RouteContext.Provider>
                 </MainContext.Provider>
             </React.Suspense>  
         </div>

@@ -1,6 +1,9 @@
 const UserVerifikasiPage = ()=>{
-    const mainContext = useContext(MainContext);
+    const mainContext = useContext(MainContext); 
+    const routeContext = useContext(RouteContext);
+
     const history = useHistory();
+    const path = history.location.pathname;
     const [isLoading,setisLoading] = useState(false); 
     const [showingLampiran,setShowingLampiran] = useState("");  
     const {no_komplain} = useParams();  
@@ -71,6 +74,7 @@ const UserVerifikasiPage = ()=>{
     }
     useEffect(()=>{  
         fetchComplain()
+        routeContext.setRouteContext(path)   
     },[])
     return (
         <>
@@ -91,22 +95,20 @@ const UserVerifikasiPage = ()=>{
 
                             <input type="text" name="tanggal" id="tanggal" className="form-control" defaultValue={data.tgl_kejadian} disabled />
 
-                            <label htmlFor="subtopik2" className="form-label mt-4">Subtopik 1</label>
-                            <input type="text" id="subtopik1" className="form-control" defaultValue={data.subtopik1} disabled/>
-
-                        </div>
-                        <div className="col">
-                            <label htmlFor="" className="form-label">Topik</label>
+                            <label className="form-label mt-4">Topik</label>
                             <input type="text" className="form-control" id="topik" defaultValue={data.topik} disabled/>
 
-                            <label htmlFor="" className="form-label mt-4">Subtopik 2</label>
+                            <label className="form-label mt-4">Subtopik 1</label>
+                            <input type="text" id="subtopik1" className="form-control" defaultValue={data.subtopik1} disabled/>
+ 
+                            <label className="form-label mt-4">Subtopik 2</label>
                             <input type="text" className="form-control" id="subtopik2" defaultValue={data.subtopik2} disabled />
                         </div>
                     </div> 
                     <div className="row">
                         <div className="col">
                             <label htmlFor="" className="form-label mt-4">Deskripsi Masalah</label>
-                            <textarea type="text" className="form-control"  defaultValue={data.deskripsi} disabled/>
+                            <textarea type="text" className="form-control" rows="5" defaultValue={data.deskripsi} disabled/>
                         </div>
                     </div>
                     <div className="row">

@@ -86,22 +86,20 @@ const UserDetailDoneKomplain = ()=>{
                 <div className="row">
                     <div className="col"> 
                         <label className="form-label mt-2">Masalah Komplain</label>
-                        <textarea className="form-control" rows="4" value={komplain.DESKRIPSI_MASALAH} disabled />
+                        <textarea className="form-control" rows="5" value={komplain.DESKRIPSI_MASALAH} disabled />
                     </div>
                 </div>
                 <div className="row mt-4">
                     <div className="col">
-                        <label htmlFor="user" className="form-label">Akar Masalah</label> 
+                        <label htmlFor="user" className="form-label mt-4">Akar Masalah</label> 
                         <textarea className="form-control" rows="10"  name="akar-masalah" value={komplain.FEEDBACK.AKAR_MASALAH} disabled/>  
-                    </div> 
-                    <div className="col">
-                        <label htmlFor="user" className="form-label">Tindakan Preventif</label> 
+                        <label htmlFor="user" className="form-label mt-4">Tindakan Preventif</label> 
                         <textarea className="form-control" rows="10"  name="preventif" value={komplain.FEEDBACK.T_PREVENTIF} disabled/> 
-                    </div> 
-                    <div className="col">
-                        <label htmlFor="user" className="form-label">Tindakan Korektif</label> 
+                        
+                        <label htmlFor="user" className="form-label mt-4">Tindakan Korektif</label> 
                         <textarea className="form-control" rows="10" name="korektif" value={komplain.FEEDBACK.T_KOREKTIF} disabled/>
-                    </div> 
+                    </div>  
+                    
                 </div>
 
                 <div className="row mt-4">
@@ -111,7 +109,10 @@ const UserDetailDoneKomplain = ()=>{
                         
                         <input type="text" name="tanggal" className="form-control" defaultValue={komplain.TGL_DEADLINE} disabled />
 
-                    </div>
+                    </div> 
+                </div>
+                
+                <div className="row mt-4"> 
                     <div className="col">
                         <label className="form-label">Daftar Lampiran</label>
                         <table  className="table"> 
@@ -127,11 +128,10 @@ const UserDetailDoneKomplain = ()=>{
                                 
                             </tbody>
                         </table>
-                    </div>
-                    <div className="col"></div>
+                    </div> 
                 </div>
                 
-                <div className="row mt-4">
+                <div className="row mt-4 mb-2">
                     <div className="col">    
                         {isLoadingSubmit && <>
                             <Button backgroundColor="secondary"><Loading color="white"/></Button>  
