@@ -2,6 +2,7 @@ const UserDetailComplain = ()=>{
     const mainContext = useContext(MainContext);
     const history = useHistory();
     const [isLoading,setisLoading] = useState(false); 
+    const [isLoadingSubmit,setisLoadingSubmit] = useState(false); 
     const [showingLampiran,setShowingLampiran] = useState("");  
     const {no_komplain} = useParams(); 
     const [data, setData] = useState([
@@ -46,7 +47,7 @@ const UserDetailComplain = ()=>{
     async function confirmDeleteComplain(){ 
         let ask = window.confirm("Apakah anda yakin ingin menghapus komplain "+no_komplain+" ? (Anda tidak bisa mengembalikan data yang telah dihapus)")
         if(ask){ 
-            setisLoading(true)
+            setisLoadingSubmit(true)
             const res =  await PrivateClient.get('/User/Complain/Detail/Delete/index_get/'+no_komplain);   
             if(res.data!=-1){ 
                 setisLoading(false) 
@@ -61,6 +62,8 @@ const UserDetailComplain = ()=>{
                     message : "Komplain gagal dihapus"
                 }) 
             }
+            
+            setisLoadingSubmit(false)
         }
     }
     function onDeviceReady() {
@@ -127,14 +130,21 @@ const UserDetailComplain = ()=>{
                             })}   
                         </div>
                     </div>
-                    {!isLoading && 
-                    <div className="row mt-4">
-                        <div className="col"> 
-                            <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={confirmDeleteComplain}>Hapus</Button> 
-                            <Button icon="fas fa-fw fa-pen mr-2" className="ml-2">Ubah</Button> 
-                        </div>  
-                    </div>
-                        }
+                    {!isLoadingSubmit && 
+                        <div className="row mt-4">
+                            <div className="col"> 
+                                <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={confirmDeleteComplain}>Hapus</Button> 
+                                <Button icon="fas fa-fw fa-pen mr-2" className="ml-2">Ubah</Button> 
+                            </div>  
+                        </div>
+                    }
+                    {isLoadingSubmit && 
+                        <div className="row mt-4">
+                            <div className="col"> 
+                                <Button btnStyle={{paddingLeft:"10px",paddingRight:"10px"}} backgroundColor="secondary"> <Loading color="white"/></Button> 
+                            </div>  
+                        </div>
+                    }
                 </div>
         </>}
         {showingLampiran!="" && <FileLoader back={()=>setShowingLampiran("")} fileUrl={showingLampiran}/>}

@@ -119,7 +119,7 @@ const UserVerifikasiPage = ()=>{
                             })}   
                         </div>
                     </div>
-                    <div className="row mt-4">
+                    <div className="row mt-4 mb-2">
                     
                     {isLoading && <div className="col">
                          <Button btnStyle={{paddingLeft:"10px",paddingRight:"10px"}} backgroundColor="success"> <Loading color="white"/></Button> 

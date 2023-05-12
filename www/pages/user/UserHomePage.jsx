@@ -190,6 +190,9 @@ const UserHomePage = ()=>{
                                     <Route path="/user/complain/add/">
                                         <UserAddComplain/>
                                     </Route> 
+                                    <Route path="/user/complain/solved/detail/:no_komplain">
+                                        <UserSolvedDetail/>
+                                    </Route>
                                     <Route path="/user/complain/solved">
                                         <UserSolvedList/>
                                     </Route>

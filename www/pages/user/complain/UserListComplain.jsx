@@ -16,7 +16,7 @@ const UserListComplain = ()=>{
     ]); 
     fetchComplain = async ()=>{ 
       const res =  await PrivateClient.get('/User/Complain/Fetch/index_get');    
-      if(res.status){
+      if(res.status<300){
         setisLoading(false) 
         setData(
             res.data.map((item)=>{
@@ -32,12 +32,14 @@ const UserListComplain = ()=>{
             }) 
         )
       }else{  
-        UserModel.logout();  
-        mainContext.setModalContext({
-            open : true,
-            message : "Sesi anda telah habis, silahkan login ulang"
-        }) 
-        history.push("/");
+        if(res.status == 401){
+            mainContext.setModalContext({
+                open : true,
+                message : "Sesi anda telah habis, silahkan login ulang"
+            }) 
+            UserModel.logout();  
+            history.push("/");
+        } 
       }
     }
     async function moveToDetail(no_komplain){  
