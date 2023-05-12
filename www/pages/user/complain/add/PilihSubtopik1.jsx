@@ -111,8 +111,7 @@ const UserAddComplainPilihSubtopik1 = ()=>{
 
                     
                      
-                </div>
-                <div className="col"></div>
+                </div> 
             </div>
             <div className="row mt-4">
                 <div className="col">

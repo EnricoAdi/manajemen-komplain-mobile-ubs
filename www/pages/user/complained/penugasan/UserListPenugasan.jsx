@@ -67,7 +67,7 @@ const UserListPenugasan = ()=>{
                     <Loading color="primary"/>
                 </div> }
                 {!isLoading && data.map((item,index)=>{ 
-                    return <ComplainCard complain={item} key={index} onClick={()=>moveTo(item.no_komplain)} backgroundColor={item.penugasan?"warning":"success"}/>
+                    return <ComplainCard complain={item} key={index} onClick={()=>moveTo(item.no_komplain)} backgroundColor={item.penugasan?"warning":"primary"}/>
                 })}
                 {!isLoading && data.length < 1  && <div className="mt-4">
                 <Card1 judul="Belum Ada Komplain Diverifikasi" isi="" icon="" warna="primary"/>

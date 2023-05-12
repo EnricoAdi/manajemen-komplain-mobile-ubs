@@ -116,28 +116,31 @@ const UserAddComplainPilihSubtopik2 = ()=>{
                 <div className="col"> 
                     <label htmlFor="subtopik1" className="form-label" >Subtopik 1</label>
                     <input type="text" className="form-control mb-3" name="subtopik1" value={subtopik1.sub_topik1+" - "+subtopik1.deskripsi} disabled/>  
-                    <label htmlFor="tanggal" className="form-label" >Tanggal</label>
-                    <input type="date" name="tanggal" id="tanggal" className="form-control mb-3" min={minDate} onChange={onChangeDatePick}/>
+ 
+                        <label htmlFor="subtopik2" className="form-label" >Subtopik 2</label>
+                        
+                        {isLoading &&<div className="mt-4"> 
+                            <Loading color="primary"/>
+                        </div> }
+                        {!isLoading && 
+                            <select className="form-control" name="subtopik2" onChange={onChangeSubTopik2}>  
+                                    {data.map((item,index)=>{
+                                        return <option value={item.sub_topik2} key={index} >{item.sub_topik2} - {item.deskripsi}</option>
+                                    })} 
+                            </select>  
+                        }  
               
-                </div>
-                <div className="col"> 
-                    <label htmlFor="subtopik2" className="form-label" >Subtopik 2</label>
-                    
-                    {isLoading &&<div className="mt-4"> 
-                        <Loading color="primary"/>
-                    </div> }
-                    {!isLoading && 
-                        <select className="form-control" name="subtopik2" onChange={onChangeSubTopik2}>  
-                                {data.map((item,index)=>{
-                                    return <option value={item.sub_topik2} key={index} >{item.sub_topik2} - {item.deskripsi}</option>
-                                })} 
-                        </select>  
-                    } 
+                </div> 
+            </div>
+            <div className="row mt-4"> 
+                <div className="col">  
+                        <label htmlFor="tanggal" className="form-label" >Tanggal</label>
+                        <input type="date" name="tanggal" id="tanggal" className="form-control mb-3" min={minDate} onChange={onChangeDatePick} defaultValue={dateNow}/>
                 </div>
             </div>
             <div className="row mt-4">
                 <div className="col">
-                    <Button href={`/user/complain/add/pilihSubtopik1/${divisi}/${topik}`} backgroundColor="danger">Sebelumnya</Button> 
+                    <Button href={`/user/complain/add/pilihSubtopik1/${divisiParam}/${topikParam}`} backgroundColor="danger">Sebelumnya</Button> 
                     <Button onclick={moveToPilihLampiran} className="ml-2">Berikutnya</Button> 
                 </div>
             </div>

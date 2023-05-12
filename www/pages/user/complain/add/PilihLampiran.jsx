@@ -134,9 +134,7 @@ const UserAddComplainPilihLampiran = ()=>{
                 <div className="col"> 
                     <label htmlFor="subtopik1" className="form-label" >Subtopik 1</label>
                     <input type="text" className="form-control mb-3" name="subtopik1" value={subtopik1.sub_topik1+" - "+subtopik1.deskripsi} disabled/>   
-              
-                </div>
-                <div className="col"> 
+               
                     <label htmlFor="subtopik2" className="form-label" >Subtopik 2</label> 
                     <input type="text" className="form-control mb-3" name="subtopik2" value={subtopik2.sub_topik2+" - "+subtopik2.deskripsi} disabled/>   
                 </div>
@@ -144,8 +142,7 @@ const UserAddComplainPilihLampiran = ()=>{
             <div className="row mt-2">
                 <div className="col">
                 <label className="form-label">Unggah Lampiran (.jpg, .png, .pdf, .docx, .xlsx, .txt)</label>
-                <input type="file" className="form-control" name="lampiran[]" style={{paddingTop:"30px", paddingLeft:"20px", height:"100px"}}  accept=".jpg,.png,.pdf,.docx,.xls,.xlsx,.txt" multiple onChange={handleFileChange}/></div>
-                <div className="col"></div>
+                <input type="file" className="form-control" name="lampiran[]" style={{paddingTop:"30px", paddingLeft:"20px", height:"100px"}}  accept=".jpg,.png,.pdf,.docx,.xls,.xlsx,.txt" multiple onChange={handleFileChange}/></div> 
             </div>
             <div className="row mt-4">
                 <div className="col"> 
@@ -156,10 +153,17 @@ const UserAddComplainPilihLampiran = ()=>{
             
             <div className="row mt-4">
                 <div className="col">
-                    <Button href={`/user/complain/add/pilihSubtopik2/${divisiParam}/${topikParam}/${subtopik1Param}`} backgroundColor="danger">Sebelumnya</Button> 
-                    {isLoading && <Button className="ml-2"> <Loading color="white"/></Button> }
+                     
+                    {isLoading &&
+                    <>
+                         <Button backgroundColor="danger">Sebelumnya</Button> 
+                        <Button className="ml-2"> <Loading color="white"/></Button>
+                    </>  }
                     {!isLoading &&
-                    <Button type="submit" className="ml-2" icon="fas fa-fw fa-paper-plane mr-2" onclick={sendComplain}>Kirim</Button>  }
+                    <> 
+                        <Button href={`/user/complain/add/pilihSubtopik2/${divisiParam}/${topikParam}/${subtopik1Param}`} backgroundColor="danger">Sebelumnya</Button> 
+                        <Button type="submit" className="ml-2" icon="fas fa-fw fa-paper-plane mr-2" onclick={sendComplain}>Kirim</Button>
+                    </>  }
 
                 </div>
             </div>

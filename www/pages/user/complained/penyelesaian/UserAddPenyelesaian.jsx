@@ -91,24 +91,28 @@ const UserAddPenyelesaian = ()=>{
                 <div className="row">
                     <div className="col"> 
                         <label className="form-label mt-2">Masalah Komplain</label>
-                        <textarea className="form-control" rows="3" defaultValue={komplain.DESKRIPSI_MASALAH} disabled/>
+                        <textarea className="form-control" rows="5" defaultValue={komplain.DESKRIPSI_MASALAH} disabled/>
                     </div>
                 </div>
+                
                 <div className="row mt-4">
                     <div className="col">
                         <label htmlFor="user" className="form-label">Akar Masalah</label> 
                         <textarea className="form-control" rows="10" name="akar-masalah" defaultValue={akar} onChange={(e)=>{setAkar(e.target.value)}} required/> 
-                    </div> 
+                    </div>   
+                </div>
+                <div className="row mt-4"> 
                     <div className="col">
                         <label htmlFor="user" className="form-label">Tindakan Preventif</label> 
                         <textarea className="form-control" rows="10" name="preventif" defaultValue={preventif} onChange={(e)=>{setPreventif(e.target.value)}} required/> 
-                    </div> 
+                    </div>  
+                </div>
+                <div className="row mt-4"> 
                     <div className="col">
                         <label htmlFor="user" className="form-label">Tindakan Korektif</label> 
                         <textarea className="form-control" rows="10" name="korektif" defaultValue={korektif} onChange={(e)=>{setKorektif(e.target.value)}} required/> 
                     </div> 
                 </div>
-
                 <div className="row mt-4">
                     <div className="col"> 
                         <label className="form-label">Tanggal Deadline</label>
@@ -118,7 +122,7 @@ const UserAddPenyelesaian = ()=>{
                     <div className="col"></div>
                     <div className="col"></div>
                 </div>
-                <div className="row mt-4">
+                <div className="row mt-4 mb-2">
                     <div className="col">    
                         <Button onclick={moveToAddLampiran}>Berikutnya</Button>
                     </div>

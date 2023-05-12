@@ -200,6 +200,9 @@ const UserHomePage = ()=>{
                                     <Route exact path="/user/complained/penyelesaian/add/:no_komplain">
                                         <UserAddPenyelesaian/>
                                     </Route>
+                                    <Route exact path="/user/complained/penyelesaian/edit/:no_komplain">
+                                        <UserEditPenyelesaian/>
+                                    </Route>
                                     <Route exact path="/user/complained/penyelesaian/add/lampiran/:no_komplain">
                                         <UserAddLampiranPenyelesaian/>
                                     </Route>

@@ -24,17 +24,13 @@ const UserDetailPenyelesaian = ()=>{
                 lampiran : res.data.LAMPIRAN,
                 feedback : res.data.FEEDBACK
             }) 
-          }else{  
-            // UserModel.logout();  
-            // mainContext.setModalContext({
-            //     open : true,
-            //     message : "Sesi anda telah habis, silahkan login ulang"
-            // }) 
-            // history.push("/");
-          }
+          } 
         }
     function moveToPenyelesaian(){ 
         history.push("/user/complained/penyelesaian/add/"+no_komplain);
+    }
+    function moveToEdit(){ 
+        history.push("/user/complained/penyelesaian/edit/"+no_komplain);
     }
     useEffect(()=>{ 
         setisLoading(true)
@@ -59,7 +55,11 @@ const UserDetailPenyelesaian = ()=>{
             </div>
             <div className="row mt-2">
                 <div className="col">
-                    <label htmlFor="topik" className="form-label">Topik</label>
+
+                    <label className="form-label mt-4">Asal Divisi</label>
+                    <input type="text" className="form-control" name="asalDivisi" defaultValue={komplain.nama_divisi_penerbit} disabled/>
+
+                    <label htmlFor="topik" className="form-label mt-4">Topik</label>
                     <input type="text" className="form-control" name="topik" value={komplain.TOPIK+" - "+ komplain.TDESKRIPSI} disabled/>
 
                     <label htmlFor="subtopik1" className="form-label mt-4">Subtopik 1</label>
@@ -68,15 +68,10 @@ const UserDetailPenyelesaian = ()=>{
                     <label htmlFor="subtopik2" className="form-label mt-4">Subtopik 2</label>
                     <input type="text" className="form-control" name="subtopik2" value={komplain.SUB_TOPIK2+" - "+komplain.S2DESKRIPSI} disabled/>
 
-                </div>
-                <div className="col">
-                    <label htmlFor="" className="form-label">Tanggal Komplain</label>
+                    <label htmlFor="" className="form-label mt-4">Tanggal Komplain</label>
                     <input type="text" className="form-control" name="tanggal" defaultValue={komplain.TGL_KEJADIAN} disabled/>
 
-                    <label className="form-label mt-4">Asal Divisi</label>
-                    <input type="text" className="form-control" name="asalDivisi" defaultValue={komplain.nama_divisi_penerbit} disabled/>
-
-                </div>
+                </div> 
             </div>
             <br/> 
             <div className="row">
@@ -87,7 +82,7 @@ const UserDetailPenyelesaian = ()=>{
                         {komplain.lampiran.map((item,index)=>{
                            return <tr key={index}>
                             <td> 
-                                <div onClick={()=>setShowingLampiran(UNIVERSAL_URL+"uploads/"+item.KODE_LAMPIRAN)} style={{color:"blue"}} target="_blank">Lampiran {index+1}</div>
+                                <div onClick={()=>setShowingLampiran(UNIVERSAL_URL+"uploads/"+item.KODE_LAMPIRAN)} style={{color:"blue"}} target="_blank">Lampiran {index+1} ({item.TIPE==0 ? "Komplain": "Feedback"})</div>
                             </td>
                            </tr>  
                         })} 
@@ -97,8 +92,8 @@ const UserDetailPenyelesaian = ()=>{
             </div>
             <div className="row mt-4 mb-4">
                 <div className="col"> 
-                        {komplain.feedback.T_KOREKTIF && <Button icon="fas fa-fw fa-plus mr-2" onclick={moveToPenyelesaian}>Tambah Penyelesaian</Button>}
-                        {!komplain.feedback.T_KOREKTIF && <Button icon="fas fa-fw fa-pen mr-2" backgroundColor="warning">Ubah Penyelesaian</Button> }
+                        {!komplain.feedback.T_KOREKTIF && <Button icon="fas fa-fw fa-plus mr-2" onclick={moveToPenyelesaian}>Tambah Penyelesaian</Button>}
+                        {komplain.feedback.T_KOREKTIF && <Button icon="fas fa-fw fa-pen mr-2" backgroundColor="warning" onclick={moveToEdit}>Ubah Penyelesaian</Button> }
                 </div>
             </div>
 

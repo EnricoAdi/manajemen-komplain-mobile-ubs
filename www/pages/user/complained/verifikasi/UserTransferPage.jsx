@@ -82,18 +82,20 @@ const UserTransferPage = ()=>{
     async function sendTransfer(){ 
         setisLoadingSubmit(true)
         const payload  = {
-            "inputTopik" : inputTopik,
-            "inputSubtopik1" : inputSubtopik1,
-            "inputSubtopik2" : inputSubtopik2,
-        }
-        const res =  await PrivateClient.post('/User/Complained/Transfer/index_post/'+no_komplain);   
+            "inputTopik" : inputTopik.kode,
+            "inputSubtopik1" : inputSubtopik1.kode,
+            "inputSubtopik2" : inputSubtopik2.kode,
+        } 
+        const res =  await PrivateClient.post('/User/Complained/Transfer/index_post/'+no_komplain,payload);   
         mainContext.setModalContext({
             open : true,
             message : res.message
         }) 
         setisLoadingSubmit(false)
-        history.push("/user/complained/listComplained")
-        return;
+        if(res.status<300){ 
+            history.push("/user/complained/listComplained")
+            return;
+        }
     }
     useEffect(()=>{
         setisLoading(true)
@@ -122,23 +124,21 @@ const UserTransferPage = ()=>{
                         } 
                     </select> }
 
-                    <label htmlFor="subtopik2" className="form-label mt-4">Topik</label>
+                    <label htmlFor="topik" className="form-label mt-4">Topik</label>
                     <input type="text" className="form-control" id="topik" value={inputTopik.kode+" - "+inputTopik.nama} disabled/> 
 
                     <label htmlFor="subtopik1" className="form-label mt-4">Subtopik 1</label>
                     <input type="text" className="form-control" id="subtopik1"  value={inputSubtopik1.kode+" - "+inputSubtopik1.nama} disabled />
 
-                </div>
-                <div className="col">
-                    <label htmlFor="" className="form-label">Divisi Tujuan</label>
+                    <label htmlFor="" className="form-label mt-4">Divisi Tujuan</label>
                     <input type="text" className="form-control" name="asalDivisi" id="divisi"  value={inputDivisi.kode + " - "+inputDivisi.nama} disabled/>
 
                     <label htmlFor="" className="form-label mt-4">Detail Transfer</label>
                     <textarea className="form-control" name="detail"/>
-                </div>
+                </div> 
             </div>
 
-            <div className="row mt-4">
+            <div className="row mt-4 mb-2">
                 <div className="col">  
                 {isLoadingSubmit && <div className="col">
                          <Button btnStyle={{paddingLeft:"10px",paddingRight:"10px"}} backgroundColor="danger"> <Loading color="white"/></Button> 
