@@ -44,7 +44,7 @@ const UserSolvedList = () => {
     //     ]
     // })
     fetchComplain = async ()=>{ 
-        const res =  await PrivateClient.get('/User/Complain/Solved/Fetch/index_get');    
+        const res =  await PrivateClient.get('/User/Complain/Solved/index_get');    
         if(res.status<300){
           setisLoading(false) 
           setData(

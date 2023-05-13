@@ -33,7 +33,7 @@ const UserSolvedDetail = ()=>{
     );
     async function fetchComplain(){ 
         const res =  await PrivateClient.get('/User/Complained/Penyelesaian/Detail/index_get/'+no_komplain);    
-        if(res.status){
+        if(res.status<300){
             setisLoading(false) 
             setKomplain({
                 ...res.data,  
@@ -55,9 +55,28 @@ const UserSolvedDetail = ()=>{
                     open : true,
                     message : "Silahkan mengisi keberatan terlebih dahulu"
                 }) 
+                return;
             }
             let confirm = window.confirm(`Apakah anda setuju untuk melakukan ${keputusan} pada komplain ini?`)
-            //todo send api request
+            if(confirm){ 
+                setisLoadingSubmit(true)
+                const payload  = {
+                    "keputusan" : keputusan,
+                    "keberatan" : keberatan
+                }  
+                const res =  await PrivateClient.post('/User/Complain/Solved/index_post/'+no_komplain,payload);   
+                mainContext.setModalContext({
+                    open : true,
+                    message : res.message
+                }) 
+                setisLoadingSubmit(false)
+                if(res.status<300){ 
+                    history.push("/user/complain/solved")
+                    return;
+                }
+            }
+           
+
         }
     }
     useEffect(()=>{
@@ -81,7 +100,7 @@ const UserSolvedDetail = ()=>{
                 </div>
                 <div className="row">
                     <div className="col"> 
-                        <label className="form-label mt-2">Topik :{komplain.TDESKRIPSI} -  {komplain.S1DESKRIPSI} -  {komplain.S2DESKRIPSI}</label>
+                        <label className="form-label mt-2">Topik : {komplain.TDESKRIPSI} -  {komplain.S1DESKRIPSI} -  {komplain.S2DESKRIPSI}</label>
                     </div>
                 </div>
                 <div className="row">
@@ -143,47 +162,49 @@ const UserSolvedDetail = ()=>{
                     </div>
                 </div>
                  {komplain.STATUS!="CLOSE" && 
-                 
-        <div className="row mt-4">
-            <div className="col">
-        
-            <div className="form-control" style={{height:"fit-content", paddingBottom:"20px"}}>
-                    <p style={{marginTop:"10px", fontWeight:"bold"}}>Keputusan :</p>
-                    <div className="row">
-                        <div className="col"><input type="radio" name="keputusan" onChange={()=>setKeputusan("cancel")} className="mr-2"/>Cancel</div>
-                        <div className="col"><input type="radio" name="keputusan" onChange={()=>setKeputusan("validasi")} className="mr-2"/>Validasi</div>
-                        <div className="col"><input type="radio" name="keputusan" onChange={()=>setKeputusan("banding")} className="mr-2"/>Banding</div>
-                    </div>
-                    
-                    {keputusan=="banding" && 
-                    <div className="row mt-4" id="banding-section">
-                        <div className="col">
-                            <label className="form-label">Permintaan Banding</label>
-                            <input type="text" id="permintaanBanding" className="form-control" onChange={(e)=>setKeberatan(e.target.value)} />
-                        </div>
-                    </div>}
-                </div>
-            </div>
-        </div> 
+                    <>
+                        <div className="row mt-4">
+                            <div className="col">
+                        
+                            <div className="form-control" style={{height:"fit-content", paddingBottom:"20px"}}>
+                                    <p style={{marginTop:"10px", fontWeight:"bold"}}>Keputusan :</p>
+                                    <div className="row">
+                                        <div className="col"><input type="radio" name="keputusan" onChange={()=>setKeputusan("cancel")} className="mr-2"/>Cancel</div>
+                                        <div className="col"><input type="radio" name="keputusan" onChange={()=>setKeputusan("validasi")} className="mr-2"/>Validasi</div>
+                                        <div className="col"><input type="radio" name="keputusan" onChange={()=>setKeputusan("banding")} className="mr-2"/>Banding</div>
+                                    </div>
+                                    
+                                    {keputusan=="banding" && 
+                                    <div className="row mt-4" id="banding-section">
+                                        <div className="col">
+                                            <label className="form-label">Permintaan Banding</label>
+                                            <input type="text" id="permintaanBanding" className="form-control" onChange={(e)=>setKeberatan(e.target.value)} />
+                                        </div>
+                                    </div>}
+                                </div>
+                            </div>
+                        </div> 
+                            <div className="row mt-4 mb-2">
+                                <div className="col">    
+                                    {isLoadingSubmit!="" &&
+                                        <>
+                                            <Button className="ml-2"> <Loading color="white"/></Button>  
+                                        </> 
+                                    }
+                                    {isLoadingSubmit=="" && 
+                                        <> 
+                                            <Button className="ml-2" onclick={selesai}>Selesai</Button>   
+                                        </>
+                                    }
+                            
+                                
+                                </div>
+                            </div> 
+                    </>
+
         }
     
  
-                <div className="row mt-4 mb-2">
-                    <div className="col">    
-                        {isLoadingSubmit!="" &&
-                            <>
-                                <Button className="ml-2"> <Loading color="white"/></Button>  
-                            </> 
-                        }
-                        {isLoadingSubmit=="" && 
-                            <> 
-                                <Button icon="fas fa-fw fa-pen mr-2" className="ml-2"  onclick={selesai}>Selesai</Button>   
-                            </>
-                        }
-                  
-                       
-                    </div>
-                </div> 
             </>}
             </>}
           {showingLampiran!="" && <FileLoader back={()=>setShowingLampiran("")} fileUrl={showingLampiran}/>}
