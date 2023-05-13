@@ -146,10 +146,10 @@ const UserTransferPage = ()=>{
 
             <div className="row mt-4 mb-2">
                 <div className="col">  
-                {isLoadingSubmit && <div className="col">
-                         <Button btnStyle={{paddingLeft:"10px",paddingRight:"10px"}} backgroundColor="danger"> <Loading color="white"/></Button> 
-                    </div>}
-                {!isLoadingSubmit && <Button className="" backgroundColor="danger" onclick={sendTransfer}>Transfer</Button> }
+                {isLoadingSubmit && <>
+                         <Button btnStyle={{paddingLeft:"10px",paddingRight:"10px"}} backgroundColor="danger" className="w-100"> <Loading color="white"/></Button> 
+                    </>}
+                {!isLoadingSubmit && <Button className="w-100" backgroundColor="danger" onclick={sendTransfer}>Transfer</Button> }
                     
                 </div>
             </div>

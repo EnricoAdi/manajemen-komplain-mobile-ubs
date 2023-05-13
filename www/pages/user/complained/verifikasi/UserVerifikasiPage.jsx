@@ -119,19 +119,39 @@ const UserVerifikasiPage = ()=>{
                             })}   
                         </div>
                     </div>
-                    <div className="row mt-4 mb-2">
+                   
                     
-                    {isLoading && <div className="col">
-                         <Button btnStyle={{paddingLeft:"10px",paddingRight:"10px"}} backgroundColor="success"> <Loading color="white"/></Button> 
-                    </div>}
-                        
-                    {!isLoading && 
-                    <div className="col">  
-                        <input type="checkbox" name="" className="mb-4" onChange={onChangeSetuju} /> Saya Menyetujui Verifikasi <br />
-                        <Button className="" backgroundColor="danger" onclick={moveToTransfer}>Transfer</Button> 
-                        <Button className="ml-2" backgroundColor="success" onclick={verifikasi}>Verifikasi</Button> 
-                    </div> }
+                    {isLoading &&  
+                    <div className="row mt-4 mb-4"> 
+                        <div className="col">
+                            
+                            <Button btnStyle={{paddingLeft:"10px",paddingRight:"10px"}} backgroundColor="success" className="w-100"> <Loading color="white"/></Button>  
+                        </div>
                     </div>
+                    }
+                        
+                    {!isLoading &&
+                    <>
+                       
+                        <div className="row mt-4"> 
+                            <div className="col">
+                                    <input type="checkbox" name="" className="mb-4" onChange={onChangeSetuju} /> Saya Menyetujui Verifikasi <br /> 
+                            </div>
+                        </div> 
+                         
+                        <div className="row mt-2"> 
+                            <div className="col"> 
+                                    <Button className="w-100" backgroundColor="danger" onclick={moveToTransfer}>Transfer</Button> 
+                            </div> 
+                        </div>
+                        <div className="row mt-2 mb-2"> 
+                            <div className="col"> 
+                                <Button className="w-100" backgroundColor="success" onclick={verifikasi}>Verifikasi</Button>  
+                            </div> 
+                        </div>
+                    </>  
+                    } 
+
                 </div>
         </>} 
            {showingLampiran!="" && <FileLoader back={()=>setShowingLampiran("")} fileUrl={showingLampiran}/>}

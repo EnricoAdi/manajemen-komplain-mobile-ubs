@@ -62,7 +62,7 @@ const UserListDoneKomplain = ()=>{
     return(
         <div> 
             <PageTitle>Daftar Penyelesaian Komplain untuk Diselesaikan</PageTitle>
-            <Button icon="fas fa-fw fa-list mr-2" href="/user/complained/listcomplained">Halaman Daftar Komplain Diterima</Button>
+            <Button href="/user/complained/listcomplained" className="w-100">Halaman Daftar Komplain Diterima</Button>
             <div> 
                 {isLoading &&<div className="mt-4"> 
                     <Loading color="primary"/>

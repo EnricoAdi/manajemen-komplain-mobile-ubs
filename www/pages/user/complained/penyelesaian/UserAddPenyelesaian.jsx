@@ -127,7 +127,7 @@ const UserAddPenyelesaian = ()=>{
                 </div>
                 <div className="row mt-4 mb-2">
                     <div className="col">    
-                        <Button onclick={moveToAddLampiran}>Berikutnya</Button>
+                        <Button onclick={moveToAddLampiran} className="w-100">Berikutnya</Button>
                     </div>
                 </div> 
             </>}

@@ -19,4 +19,5 @@
     <allow-intent href="http://*/*" /> 
     <preference name="Scheme" value="http" />
     <icon src="www/img/logo.png"  />
+    <plugin name="cordova-plugin-file" source="npm" spec="~6.0.2" />
 </widget>

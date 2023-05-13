@@ -91,9 +91,15 @@ const UserAddComplainPilihTopik = ()=>{
             </div>
             <div className="row mt-4">
                 <div className="col">
-                    <Button href="/user/complain/add/pilihDivisi" backgroundColor="danger">Sebelumnya</Button> 
-                    <Button onclick={moveToPilihSubTopik1} className="ml-2" backgroundColor="primary">Berikutnya</Button> 
-                </div>
+                    <Button href="/user/complain/add/pilihDivisi" backgroundColor="danger" className="w-100">Sebelumnya</Button>  
+                </div>  
+                 
+            </div> 
+            <div className="row mt-2">
+                <div className="col">
+                    <Button onclick={moveToPilihSubTopik1} className="w-100" backgroundColor="primary">Berikutnya</Button>  
+                </div>  
+                 
             </div> 
         </div>
     )

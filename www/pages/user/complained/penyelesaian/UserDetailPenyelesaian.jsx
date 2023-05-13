@@ -97,8 +97,8 @@ const UserDetailPenyelesaian = ()=>{
             </div>
             <div className="row mt-4 mb-4">
                 <div className="col"> 
-                        {!komplain.feedback.T_KOREKTIF && <Button icon="fas fa-fw fa-plus mr-2" onclick={moveToPenyelesaian}>Tambah Penyelesaian</Button>}
-                        {komplain.feedback.T_KOREKTIF && <Button icon="fas fa-fw fa-pen mr-2" backgroundColor="warning" onclick={moveToEdit}>Ubah Penyelesaian</Button> }
+                        {!komplain.feedback.T_KOREKTIF && <Button icon="fas fa-fw fa-plus mr-2" onclick={moveToPenyelesaian} className="w-100">Tambah Penyelesaian</Button>}
+                        {komplain.feedback.T_KOREKTIF && <Button icon="fas fa-fw fa-pen mr-2" backgroundColor="warning" onclick={moveToEdit} className="w-100">Ubah Penyelesaian</Button> }
                 </div>
             </div>
 

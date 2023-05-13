@@ -131,19 +131,19 @@ const UserIsiPenugasan = ()=>{
             </div>
     }
 
-    <div className="row mt-4">
+    <div className="row mt-4 mb-4">
         <div className="col">  
             {!komplain.PENUGASAN && 
             <>
-                {!isLoadingSubmit && <Button icon="fas fa-fw fa-save mr-2" backgroundColor="primary" onclick={sendPenugasan}>Simpan Penugasan</Button>}
-                {isLoadingSubmit && <Button><Loading color="white"/></Button>}
+                {!isLoadingSubmit && <Button icon="fas fa-fw fa-save mr-2" backgroundColor="primary" onclick={sendPenugasan} className="w-100">Simpan Penugasan</Button>}
+                {isLoadingSubmit && <Button className="w-100"><Loading color="white"/></Button>}
                 
             </>
             }
             {komplain.PENUGASAN && 
             <>
-                {!isLoadingSubmit && <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={deletePenugasan}>Hapus Penugasan</Button>}
-                {isLoadingSubmit && <Button><Loading color="white" backgroundColor="danger"/></Button>}
+                {!isLoadingSubmit && <Button className="w-100" icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={deletePenugasan}>Hapus Penugasan</Button>}
+                {isLoadingSubmit && <Button className="w-100"><Loading color="white" backgroundColor="danger"/></Button>}
             </>
             } 
         </div>

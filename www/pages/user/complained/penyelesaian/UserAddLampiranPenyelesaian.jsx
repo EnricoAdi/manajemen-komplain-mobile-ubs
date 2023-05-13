@@ -89,9 +89,10 @@ const UserAddLampiranPenyelesaian = ()=>{
         <div className="row mt-4">
             <div className="col">
                 <label htmlFor="user" className="form-label">Input Lampiran (tidak wajib)</label>
-                <input type="file" className="form-control" style={{paddingTop:"30px", paddingLeft:"20px", height:"100px"}}  accept=".jpg,.png,.pdf,.docx,.xls,.xlsx,.txt" multiple onChange={handleFileChange}/>
-
+                <input type="file" className="form-control" style={{paddingTop:"30px", paddingLeft:"20px", height:"100px"}}  accept=".jpg,.png,.pdf,.docx,.xls,.xlsx,.txt" multiple onChange={handleFileChange}/> 
             </div>
+        </div>
+        <div className="row mt-4 mb-4"> 
             <div className="col">
                 <label htmlFor="user" className="form-label">Rangkuman Input Penyelesaian Komplain</label>
                 <div className="form-control" style={{height:"fit-content",paddingBottom:" 20px"}}>

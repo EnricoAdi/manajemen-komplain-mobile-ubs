@@ -188,12 +188,12 @@ const UserSolvedDetail = ()=>{
                                 <div className="col">    
                                     {isLoadingSubmit!="" &&
                                         <>
-                                            <Button className="ml-2"> <Loading color="white"/></Button>  
+                                            <Button className="w-100"> <Loading color="white"/></Button>  
                                         </> 
                                     }
                                     {isLoadingSubmit=="" && 
                                         <> 
-                                            <Button className="ml-2" onclick={selesai}>Selesai</Button>   
+                                            <Button className="w-100" onclick={selesai}>Selesai</Button>   
                                         </>
                                     }
                             

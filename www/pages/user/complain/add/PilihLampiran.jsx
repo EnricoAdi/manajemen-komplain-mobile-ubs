@@ -154,22 +154,35 @@ const UserAddComplainPilihLampiran = ()=>{
                 </div>
             </div>
             
-            <div className="row mt-4">
-                <div className="col">
                      
                     {isLoading &&
                     <>
-                         <Button backgroundColor="danger">Sebelumnya</Button> 
-                        <Button className="ml-2"> <Loading color="white"/></Button>
-                    </>  }
+                        <div className="row mt-4">
+                            <div className="col">
+                                <Button backgroundColor="danger" className="w-100">Sebelumnya</Button> 
+                            </div>
+                        </div> 
+                        <div className="row mt-2">
+                            <div className="col">
+                                <Button className="w-100"> <Loading color="white"/></Button>
+                            </div>
+                        </div>  
+                    </> 
+                     }
                     {!isLoading &&
                     <> 
-                        <Button href={`/user/complain/add/pilihSubtopik2/${divisiParam}/${topikParam}/${subtopik1Param}`} backgroundColor="danger">Sebelumnya</Button> 
-                        <Button type="submit" className="ml-2" icon="fas fa-fw fa-paper-plane mr-2" onclick={sendComplain}>Kirim</Button>
+                        <div className="row mt-4">
+                            <div className="col">
+                                    <Button href={`/user/complain/add/pilihSubtopik2/${divisiParam}/${topikParam}/${subtopik1Param}`} backgroundColor="danger" className="w-100">Sebelumnya</Button>  
+                            </div>
+                        </div>
+                        <div className="row mt-2">
+                            <div className="col">  
+                                <Button type="submit" className="w-100" icon="fas fa-fw fa-paper-plane mr-2" onclick={sendComplain}>Kirim</Button>
+                            </div>
+                        </div>
                     </>  }
 
-                </div>
-            </div>
         </div>
     )
 }

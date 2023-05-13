@@ -168,8 +168,8 @@ const UserEditComplain = ()=>{
      {komplain.STATUS != "CLOSE" && 
         <div className="row mt-4 mb-2">
             <div className="col">  
-                    {!isLoadingSubmit && <Button icon="fas fa-fw fa-pen mr-2" onclick={editComplain}>Simpan</Button>}
-                    {isLoadingSubmit && <Button><Loading color="white"/></Button>}
+                    {!isLoadingSubmit && <Button icon="fas fa-fw fa-pen mr-2" className="w-100" onclick={editComplain}>Simpan</Button>}
+                    {isLoadingSubmit && <Button className="w-100"><Loading color="white"/></Button>}
                 
             </div>
         </div>

@@ -140,17 +140,19 @@ const UserDetailComplain = ()=>{
                     </div>
                     {data.status!="CLOSE"&& <> 
                         {!isLoadingSubmit && 
-                            <div className="row mt-4 mb-2">
-                                <div className="col"> 
-                                    <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={confirmDeleteComplain}>Hapus</Button> 
-                                    <Button icon="fas fa-fw fa-pen mr-2" className="ml-2" onclick={moveToEdit}>Ubah</Button> 
-                                </div>  
+                            <>
+                            <div className="row mt-4"> 
+                                    <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={confirmDeleteComplain} className="w-100">Hapus</Button>  
                             </div>
+                            <div className="row mt-2 mb-2">  
+                                    <Button icon="fas fa-fw fa-pen mr-2" className="w-100" onclick={moveToEdit}>Ubah</Button>  
+                            </div>
+                            </>
                         }
                         {isLoadingSubmit && 
                             <div className="row mt-4 mb-2">
                                 <div className="col"> 
-                                    <Button btnStyle={{paddingLeft:"10px",paddingRight:"10px"}} backgroundColor="secondary"> <Loading color="white"/></Button> 
+                                    <Button btnStyle={{paddingLeft:"10px",paddingRight:"10px"}} backgroundColor="secondary" className="w-100"> <Loading color="white"/></Button> 
                                 </div>  
                             </div>
                         }

@@ -139,11 +139,11 @@ const UserDetailDoneKomplain = ()=>{
                 <div className="row mt-4 mb-2">
                     <div className="col">    
                         {isLoadingSubmit && <>
-                            <Button backgroundColor="secondary"><Loading color="white"/></Button>  
+                            <Button backgroundColor="secondary"  className="w-100"><Loading color="white"/></Button>  
                         </>}
                         {!isLoadingSubmit && <> 
-                            <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={hapus}>Hapus</Button>  
-                            <Button className="ml-2" onclick={selesai}>Selesai</Button> 
+                            <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={hapus}  className="w-100">Hapus</Button>  
+                            <Button className="w-100 mt-2" onclick={selesai}>Selesai</Button> 
                         </>}  
                     </div>
                 </div>

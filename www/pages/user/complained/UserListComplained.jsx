@@ -54,7 +54,7 @@ const UserListComplained = ()=>{
     return(
         <div>
             <PageTitle>Daftar Komplain Mendatang dari Divisi Lain</PageTitle>
-            <Button href="/user/complained/penugasan" icon="fas fa-fw fa-wrench mr-2" backgroundColor="primary">Ke Halaman Penugasan</Button>
+            <Button href="/user/complained/penugasan" icon="fas fa-fw fa-wrench mr-2" backgroundColor="primary" className="w-100">Ke Halaman Penugasan</Button>
             <div> 
                 {isLoading &&<div className="mt-4"> 
                     <Loading color="primary"/>

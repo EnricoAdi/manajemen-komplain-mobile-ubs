@@ -66,7 +66,7 @@ const UserListPenugasan = ()=>{
     return(
         <> 
             <PageTitle>Isi Penugasan</PageTitle>
-            <Button icon="fas fa-fw fa-check mr-2" href="/user/complained/listComplained">Halaman Verifikasi</Button>
+            <Button icon="fas fa-fw fa-check mr-2" href="/user/complained/listComplained" className="w-100">Halaman Verifikasi</Button>
             <div> 
                 {isLoading &&<div className="mt-4"> 
                     <Loading color="primary"/>

@@ -247,13 +247,13 @@ const UserEditPenyelesaian = () => {
                     <div className="col">    
                         {isLoadingSubmit!="" &&
                             <>
-                                <Button className="ml-2" backgroundColor={isLoadingSubmit=="delete"?"danger":"primary"}> <Loading color="white"/></Button>  
+                                <Button className="w-100" backgroundColor={isLoadingSubmit=="delete"?"danger":"primary"}> <Loading color="white"/></Button>  
                             </> 
                         }
                         {isLoadingSubmit=="" && 
                             <>
-                                <Button backgroundColor="danger" icon="fas fa-fw fa-trash mr-2" onclick={deleteFeedback}>Hapus</Button>
-                                <Button icon="fas fa-fw fa-pen mr-2" className="ml-2"  onclick={updateFeedback}>Edit</Button>   
+                                <Button backgroundColor="danger" icon="fas fa-fw fa-trash mr-2" onclick={deleteFeedback} className="w-100">Hapus</Button>
+                                <Button icon="fas fa-fw fa-pen mr-2" className="w-100 mt-2"  onclick={updateFeedback} >Edit</Button>   
                             </>
                         }
                   

@@ -71,7 +71,7 @@ const UserAddComplainPilihDivisi= ()=>{
             </div>
             <div className="row mt-4">
                 <div className="col">
-                    <Button onclick={moveToPilihTopik} backgroundColor="primary">Berikutnya</Button> 
+                    <Button onclick={moveToPilihTopik} backgroundColor="primary" className="w-100">Berikutnya</Button> 
                 </div>
             </div> 
         </div>

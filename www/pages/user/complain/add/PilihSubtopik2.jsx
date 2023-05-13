@@ -138,14 +138,18 @@ const UserAddComplainPilihSubtopik2 = ()=>{
             </div>
             <div className="row mt-4"> 
                 <div className="col">  
-                        <label htmlFor="tanggal" className="form-label" >Tanggal</label>
+                        <label htmlFor="tanggal" className="form-label">Tanggal</label>
                         <input type="date" name="tanggal" id="tanggal" className="form-control mb-3" min={minDate} onChange={onChangeDatePick} defaultValue={dateNow}/>
                 </div>
             </div>
             <div className="row mt-4">
                 <div className="col">
-                    <Button href={`/user/complain/add/pilihSubtopik1/${divisiParam}/${topikParam}`} backgroundColor="danger">Sebelumnya</Button> 
-                    <Button onclick={moveToPilihLampiran} className="ml-2">Berikutnya</Button> 
+                    <Button href={`/user/complain/add/pilihSubtopik1/${divisiParam}/${topikParam}`} backgroundColor="danger" className="w-100">Sebelumnya</Button>  
+                </div>
+            </div>
+            <div className="row mt-2">
+                <div className="col"> 
+                    <Button onclick={moveToPilihLampiran} className="w-100">Berikutnya</Button> 
                 </div>
             </div>
         </div>

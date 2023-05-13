@@ -41,7 +41,7 @@ const UserDashboard = ()=>{
     return(
         <div className="mb-4"> 
             <PageTitle>Dashboard User</PageTitle> 
-            <Button icon="fas fa-fw fa-paper-plane mr-2" href="/user/complain/add/pilihDivisi">Ajukan Komplain </Button> 
+            <Button icon="fas fa-fw fa-paper-plane mr-2" href="/user/complain/add/pilihDivisi" className="w-100">Ajukan Komplain </Button> 
             <div className="row mt-2">
                 <div className="col mt-2">
                     <Card1 judul="Komplain Terkirim" isi={data.jumlahKomplainTerkirim} icon="fa-paper-plane" warna="primary"/> 
@@ -57,7 +57,7 @@ const UserDashboard = ()=>{
             <h4 className="h4 mt-4 text-gray-800 font-weight-bold">Komplain Dikirim Bulan Ini</h4>
                     {data.listKomplainDikirimBulanIniByUser.length < 1 &&  <Card1 judul="Belum Ada Komplain" isi="" icon="" warna="primary"/> }
                     {data.listKomplainDikirimBulanIniByUser.length > 0 && 
-                        <div className="d-flex flex-wrap align-items-start ">
+                        <div className="">
                             {data.listKomplainDikirimBulanIniByUser.map((item,index)=>{
                                 let color = "success"
                                 if(item.STATUS == "OPEN"){
@@ -67,7 +67,7 @@ const UserDashboard = ()=>{
                                     color = "danger"
                                 }
                                 return <Link to={`/user/complain/detail/${item.NO_KOMPLAIN}`} key={index}>
-                                            <div className='card shadow h-100 py-2 mr-3 mt-3' style={{width:"200px"}}>
+                                            <div className='card shadow h-100 py-2 mr-3 mt-3 w-100' >
                                                 <div className='card-body'>
                                                     <div className='row no-gutters align-items-center'>
                                                         <div className='col mr-2'>
@@ -90,7 +90,7 @@ const UserDashboard = ()=>{
             <h4 className="h4 mt-4 text-gray-800 font-weight-bold">Komplain Sedang Diselesaikan</h4>
                     {data.listKomplainOnGoingByUser.length< 1 && <Card1 judul="Belum Ada Komplain" isi="" icon="" warna="primary"/>  }
                     {data.listKomplainOnGoingByUser.length > 0 && 
-                        <div className="d-flex flex-wrap align-items-start mb-4">
+                        <div className=" mb-4">
                             {data.listKomplainOnGoingByUser.map((item,index)=>{
                                 let progress = 20;
                                 if (item.T_KOREKTIF != null) {
@@ -109,7 +109,7 @@ const UserDashboard = ()=>{
                                     }
                                 }
                                 return <Link to={`/User/Complained/Penyelesaian/detail/${item.NO_KOMPLAIN}`} key={index}> 
-                                            <div className='card shadow h-100 py-2 mr-3 mt-3' style={{width:"200px"}}>
+                                            <div className='card shadow h-100 py-2 mr-3 mt-3 w-100'  >
                                                 <div className='card-body'>
                                                     <div className='row no-gutters align-items-center'>
                                                         <div className='col mr-2'>
