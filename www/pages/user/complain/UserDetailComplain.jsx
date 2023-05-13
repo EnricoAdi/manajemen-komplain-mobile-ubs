@@ -69,6 +69,9 @@ const UserDetailComplain = ()=>{
             setisLoadingSubmit(false)
         }
     }
+    function moveToEdit(){
+        history.push("/user/complain/edit/"+no_komplain)
+    }
     function onDeviceReady() {
         alert("hello");
     }
@@ -105,26 +108,26 @@ const UserDetailComplain = ()=>{
                     </div> 
                     <div className="row">
                         <div className="col">
-                            <label htmlFor="user" className="form-label">Tanggal Kejadian</label>
+                            <label htmlFor="user" className="form-label mt-4">Tanggal Kejadian</label>
 
                             <input type="text" name="tanggal" id="tanggal" className="form-control" defaultValue={data.tgl_kejadian} disabled />
+
+                            <label htmlFor="" className="form-label mt-4">Topik</label>
+                            <input type="text" className="form-control" id="topik" defaultValue={data.topik} disabled/>
+
 
                             <label htmlFor="subtopik2" className="form-label mt-4">Subtopik 1</label>
                             <input type="text" id="subtopik1" className="form-control" defaultValue={data.subtopik1} disabled/>
 
-                        </div>
-                        <div className="col">
-                            <label htmlFor="" className="form-label">Topik</label>
-                            <input type="text" className="form-control" id="topik" defaultValue={data.topik} disabled/>
-
                             <label htmlFor="" className="form-label mt-4">Subtopik 2</label>
                             <input type="text" className="form-control" id="subtopik2" defaultValue={data.subtopik2} disabled />
-                        </div>
+
+                        </div> 
                     </div> 
                     <div className="row">
                         <div className="col">
                             <label htmlFor="" className="form-label mt-4">Deskripsi</label>
-                            <textarea type="text" className="form-control"  defaultValue={data.deskripsi} disabled/>
+                            <textarea type="text" className="form-control" rows="5" defaultValue={data.deskripsi} disabled/>
                         </div>
                     </div>
                     <div className="row">
@@ -135,21 +138,23 @@ const UserDetailComplain = ()=>{
                             })}   
                         </div>
                     </div>
-                    {!isLoadingSubmit && 
-                        <div className="row mt-4">
-                            <div className="col"> 
-                                <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={confirmDeleteComplain}>Hapus</Button> 
-                                <Button icon="fas fa-fw fa-pen mr-2" className="ml-2">Ubah</Button> 
-                            </div>  
-                        </div>
-                    }
-                    {isLoadingSubmit && 
-                        <div className="row mt-4">
-                            <div className="col"> 
-                                <Button btnStyle={{paddingLeft:"10px",paddingRight:"10px"}} backgroundColor="secondary"> <Loading color="white"/></Button> 
-                            </div>  
-                        </div>
-                    }
+                    {data.status!="CLOSE"&& <> 
+                        {!isLoadingSubmit && 
+                            <div className="row mt-4 mb-2">
+                                <div className="col"> 
+                                    <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={confirmDeleteComplain}>Hapus</Button> 
+                                    <Button icon="fas fa-fw fa-pen mr-2" className="ml-2" onclick={moveToEdit}>Ubah</Button> 
+                                </div>  
+                            </div>
+                        }
+                        {isLoadingSubmit && 
+                            <div className="row mt-4 mb-2">
+                                <div className="col"> 
+                                    <Button btnStyle={{paddingLeft:"10px",paddingRight:"10px"}} backgroundColor="secondary"> <Loading color="white"/></Button> 
+                                </div>  
+                            </div>
+                        }
+                    </>}
                 </div>
         </>}
         {showingLampiran!="" && <FileLoader back={()=>setShowingLampiran("")} fileUrl={showingLampiran}/>}

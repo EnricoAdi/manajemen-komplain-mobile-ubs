@@ -46,7 +46,7 @@ const UserDetailDoneKomplain = ()=>{
         if(confirm){
             setisLoadingSubmit(true)   
             const res =  await PrivateClient.get('User/Complained/Done/Success/index_get/'+no_komplain);     
-            console.log(res)
+            
             mainContext.setModalContext({
                 open : true,
                 message : res.message

@@ -89,7 +89,9 @@ const UserHomePage = ()=>{
                             Komplain Diajukan
                         </div>
                         <li className={routeContext.routeContext.includes("/user/complain/list")||
-                        routeContext.routeContext.includes("/user/complain/add")?"nav-item active":"nav-item"}>
+                        routeContext.routeContext.includes("/user/complain/add")||
+                        routeContext.routeContext.includes("/user/complain/edit")||
+                        routeContext.routeContext.includes("/user/complain/detail")?"nav-item active":"nav-item"}>
                             <a className="nav-link" data-toggle="collapse" data-target="#collapsePagesPengajuan" aria-expanded="true" aria-controls="collapsePagesPengajuan">
 
                                 <i className="fas fa-fw fa-paper-plane"></i>
@@ -186,6 +188,10 @@ const UserHomePage = ()=>{
                                 <Switch>   
                                     <Route exact path="/user/complain/detail/:no_komplain">
                                         <UserDetailComplain/>
+                                    </Route> 
+                                    
+                                    <Route exact path="/user/complain/edit/:no_komplain">
+                                        <UserEditComplain/>
                                     </Route> 
                                     <Route path="/user/complain/add/">
                                         <UserAddComplain/>
