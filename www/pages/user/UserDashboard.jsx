@@ -108,7 +108,7 @@ const UserDashboard = ()=>{
                                         }
                                     }
                                 }
-                                return <Link to={`User/Complained/Penyelesaian/detail/${item.NO_KOMPLAIN}`} key={index}> 
+                                return <Link to={`/User/Complained/Penyelesaian/detail/${item.NO_KOMPLAIN}`} key={index}> 
                                             <div className='card shadow h-100 py-2 mr-3 mt-3' style={{width:"200px"}}>
                                                 <div className='card-body'>
                                                     <div className='row no-gutters align-items-center'>

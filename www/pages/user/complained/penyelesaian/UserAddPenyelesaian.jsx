@@ -123,9 +123,7 @@ const UserAddPenyelesaian = ()=>{
                         <label className="form-label">Tanggal Deadline</label>
                         <input type="date" name="tanggal" id="tanggal" className="form-control"  defaultValue={deadline} onChange={(e)=>{setDeadline(e.target.value)}} required/>
 
-                    </div>
-                    <div className="col"></div>
-                    <div className="col"></div>
+                    </div> 
                 </div>
                 <div className="row mt-4 mb-2">
                     <div className="col">    

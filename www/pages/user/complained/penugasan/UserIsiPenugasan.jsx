@@ -34,6 +34,11 @@ const UserIsiPenugasan = ()=>{
                 NAMADIVISI : res.data.komplain.PENERBIT.NAMA}  )
             setUsers(res.data.users)  
             setisLoading(false)  
+            if((komplain.PENUGASAN==null||komplain.PENUGASAN==""||komplain.PENUGASAN=="null") && res.data.users.length>0){
+                setInputUser({
+                    NOMOR_INDUK : res.data.users[0].NOMOR_INDUK
+                })
+            } 
           }else{  
             // UserModel.logout();  
             // mainContext.setModalContext({
@@ -46,13 +51,15 @@ const UserIsiPenugasan = ()=>{
     async function sendPenugasan(){ 
         const payload = {
             "user" : inputUser.NOMOR_INDUK
-        }
+        } 
+        setisLoadingSubmit(true)
         const res =  await PrivateClient.post('/User/Complained/Penugasan/Add/index_post/'+no_komplain,payload);  
 
         mainContext.setModalContext({
             open : true,
             message : res.message
         }) 
+        setisLoadingSubmit(false)
         if(res.status==200){ 
             // history.push("/user/complained/penugasan")
             setisLoading(true)
@@ -61,12 +68,12 @@ const UserIsiPenugasan = ()=>{
     }
     async function deletePenugasan(){  
         const res =  await PrivateClient.get('/User/Complained/Penugasan/Delete/index_get/'+no_komplain);  
-
+        setisLoadingSubmit(true)
         mainContext.setModalContext({
             open : true,
             message : res.message
         }) 
-
+        setisLoadingSubmit(false)
         if(res.status==200){ 
             // history.push("/user/complained/penugasan")
             setisLoading(true)
@@ -114,7 +121,7 @@ const UserIsiPenugasan = ()=>{
                             return <option key={index} value={user.NOMOR_INDUK}>{user.NOMOR_INDUK} - {user.NAMA}</option>
                         })}
                     </select>}
-                    {!komplain.PENUGASAN && <select name='user' className='form-control' onChange={changeUser}>
+                    {!komplain.PENUGASAN && <select name='user' className='form-control' defaultValue={inputUser.NOMOR_INDUK} onChange={changeUser}>
                         {users.map((user,index)=>{
                             return <option key={index} value={user.NOMOR_INDUK}>{user.NOMOR_INDUK} - {user.NAMA}</option>
                         })}
@@ -126,8 +133,19 @@ const UserIsiPenugasan = ()=>{
 
     <div className="row mt-4">
         <div className="col">  
-            {!komplain.PENUGASAN && <Button icon="fas fa-fw fa-save mr-2" backgroundColor="primary" onclick={sendPenugasan}>Simpan Penugasan</Button>}
-            {komplain.PENUGASAN && <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={deletePenugasan}>Hapus Penugasan</Button>} 
+            {!komplain.PENUGASAN && 
+            <>
+                {!isLoadingSubmit && <Button icon="fas fa-fw fa-save mr-2" backgroundColor="primary" onclick={sendPenugasan}>Simpan Penugasan</Button>}
+                {isLoadingSubmit && <Button><Loading color="white"/></Button>}
+                
+            </>
+            }
+            {komplain.PENUGASAN && 
+            <>
+                {!isLoadingSubmit && <Button icon="fas fa-fw fa-trash mr-2" backgroundColor="danger" onclick={deletePenugasan}>Hapus Penugasan</Button>}
+                {isLoadingSubmit && <Button><Loading color="white" backgroundColor="danger"/></Button>}
+            </>
+            } 
         </div>
     </div>
         </>
