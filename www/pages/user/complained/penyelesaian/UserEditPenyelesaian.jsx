@@ -1,7 +1,11 @@
 const UserEditPenyelesaian = () => {
     const mainContext = useContext(MainContext);
     const history = useHistory();
+    
+    const routeContext = useContext(RouteContext);
+    const path = history.location.pathname;
     const [isLoading,setisLoading] = useState(false); 
+
     const [isLoadingSubmit,setisLoadingSubmit] = useState(""); 
     const [showingLampiran,setShowingLampiran] = useState("");  
     const {no_komplain} = useParams(); 
@@ -125,6 +129,8 @@ const UserEditPenyelesaian = () => {
     useEffect(()=>{
         setisLoading(true) 
         fetchComplain() 
+        
+        routeContext.setRouteContext(path)  
     },[])
     return(
         <>  {showingLampiran=="" && <>

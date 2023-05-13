@@ -10,7 +10,8 @@ const AdminHomePage = () => {
     });
  
 
-    const history = useHistory();  
+    const history = useHistory();   
+    const path = history.location.pathname;
     cekToken = async()=>{ 
         const res =  await PrivateClient.get('TesVerification/index_get');    
         return res.status

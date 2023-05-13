@@ -1,6 +1,9 @@
 const UserSolvedDetail = ()=>{ 
     const mainContext = useContext(MainContext);
     const history = useHistory();
+    
+    const routeContext = useContext(RouteContext);
+    const path = history.location.pathname;
     const [isLoading,setisLoading] = useState(false); 
     const [isLoadingSubmit,setisLoadingSubmit] = useState(""); 
     const [showingLampiran,setShowingLampiran] = useState("");  
@@ -60,6 +63,8 @@ const UserSolvedDetail = ()=>{
     useEffect(()=>{
         setisLoading(true) 
         fetchComplain() 
+        
+        routeContext.setRouteContext(path)  
     },[])
     return(
         <> 

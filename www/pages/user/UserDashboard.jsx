@@ -1,6 +1,11 @@
 const UserDashboard = ()=>{ 
     const mainContext = useContext(MainContext); 
+    const routeContext = useContext(RouteContext);
     const [isLoading,setisLoading] = useState(false); 
+    
+    const history = useHistory();  
+
+    const path = history.location.pathname;
     const [data, setData] = useState(
         {
             jumlahKomplainTerkirim: 11,
@@ -30,6 +35,8 @@ const UserDashboard = ()=>{
     useEffect(()=>{  
         setisLoading(true)
         fetchComplain()
+        
+        routeContext.setRouteContext(path)   
     },[]) 
     return(
         <div className="mb-4"> 

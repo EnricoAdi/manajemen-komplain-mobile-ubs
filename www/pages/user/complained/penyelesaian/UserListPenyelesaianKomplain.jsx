@@ -2,6 +2,8 @@ const UserListPenyelesaianKomplain = ()=>{
     const mainContext = useContext(MainContext);
     const [isLoading,setisLoading] = useState(false);
     const history = useHistory(); 
+    const routeContext = useContext(RouteContext);
+    const path = history.location.pathname;
     const [data, setData] = useState([
         {
             no_komplain: '12314188',
@@ -49,6 +51,8 @@ const UserListPenyelesaianKomplain = ()=>{
     useEffect(()=>{ 
         setisLoading(true)
         fetchComplain()
+        
+        routeContext.setRouteContext(path)  
     },[]) 
     return(
         <div> 

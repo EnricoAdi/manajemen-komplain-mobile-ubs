@@ -1,6 +1,8 @@
 const UserAddComplainPilihDivisi= ()=>{ 
     const history = useHistory();   
     const mainContext = useContext(MainContext);
+    const routeContext = useContext(RouteContext);
+    const path = history.location.pathname;
     const [isLoading,setisLoading] = useState(false); 
     const [data, setData] = useState([
         {
@@ -40,6 +42,7 @@ const UserAddComplainPilihDivisi= ()=>{
     useEffect(()=>{ 
         setisLoading(true)
         fetchDivisi().then((res)=>setDivisi(data[0].kode))
+        routeContext.setRouteContext(path)  
     },[])
     return(
         <div> 

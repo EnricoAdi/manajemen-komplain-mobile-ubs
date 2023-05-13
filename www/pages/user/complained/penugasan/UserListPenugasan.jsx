@@ -1,6 +1,9 @@
 const UserListPenugasan = ()=>{
     const mainContext = useContext(MainContext);
     const history = useHistory();
+    
+    const routeContext = useContext(RouteContext);
+    const path = history.location.pathname;
     const [isLoading,setisLoading] = useState(false); 
     const [data, setData] = useState([
         {
@@ -57,6 +60,8 @@ const UserListPenugasan = ()=>{
     useEffect(()=>{ 
         setisLoading(true)
         fetchComplain()
+        
+        routeContext.setRouteContext(path)  
     },[]) 
     return(
         <> 

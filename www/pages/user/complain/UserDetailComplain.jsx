@@ -1,7 +1,10 @@
 const UserDetailComplain = ()=>{ 
     const mainContext = useContext(MainContext);
     const history = useHistory();
-    const [isLoading,setisLoading] = useState(false); 
+    const [isLoading,setisLoading] = useState(false);  
+    const routeContext = useContext(RouteContext);
+    const path = history.location.pathname;
+
     const [isLoadingSubmit,setisLoadingSubmit] = useState(false); 
     const [showingLampiran,setShowingLampiran] = useState("");  
     const {no_komplain} = useParams(); 
@@ -73,6 +76,8 @@ const UserDetailComplain = ()=>{
         setisLoading(true)
         fetchComplain()
         // document.addEventListener('deviceready',)
+        
+        routeContext.setRouteContext(path)  
     },[])
     return(
         <>

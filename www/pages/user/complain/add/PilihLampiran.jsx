@@ -2,6 +2,8 @@
 const UserAddComplainPilihLampiran = ()=>{
     const history = useHistory();  
     const mainContext = useContext(MainContext);
+    const routeContext = useContext(RouteContext);
+    const path = history.location.pathname;
     const [isLoading,setisLoading] = useState(false);    
     let {divisiParam,topikParam,subtopik1Param,subtopik2Param,tanggalParam} = useParams();
     const [divisi,setDivisi] = useState({ 
@@ -100,6 +102,7 @@ const UserAddComplainPilihLampiran = ()=>{
     useEffect(()=>{ 
         setisLoading(false)
         fetchData()
+        routeContext.setRouteContext(path)  
     },[])
     return(
         <div className="mb-2"> 

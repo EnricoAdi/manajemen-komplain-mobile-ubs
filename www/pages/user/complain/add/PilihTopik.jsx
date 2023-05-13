@@ -1,6 +1,9 @@
 const UserAddComplainPilihTopik = ()=>{  
     const history = useHistory();  
     const mainContext = useContext(MainContext);
+    
+    const routeContext = useContext(RouteContext);
+    const path = history.location.pathname;
     const [isLoading,setisLoading] = useState(false); 
     let {divisiParam} = useParams();
     const [divisi,setDivisi] = useState({ 
@@ -55,6 +58,8 @@ const UserAddComplainPilihTopik = ()=>{
         fetchTopik().then((res)=>{ 
             setTopik(res.kode)
         })
+        
+        routeContext.setRouteContext(path)  
     },[])
     return(
         <div> 

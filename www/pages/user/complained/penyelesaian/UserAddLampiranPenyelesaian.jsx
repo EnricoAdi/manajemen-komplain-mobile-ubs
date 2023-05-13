@@ -1,6 +1,10 @@
 const UserAddLampiranPenyelesaian = ()=>{
     const mainContext = useContext(MainContext);
     const history = useHistory();
+    
+    const routeContext = useContext(RouteContext);
+    const path = history.location.pathname;
+    
     const [isLoading,setisLoading] = useState(false); 
     const {no_komplain} = useParams(); 
 
@@ -64,6 +68,8 @@ const UserAddLampiranPenyelesaian = ()=>{
             setKorektif(preSended.korektif);
             setDeadline(preSended.deadline);
         } 
+        
+        routeContext.setRouteContext(path)  
     },[])
     return(
         <> 

@@ -1,6 +1,8 @@
 
 const UserAddComplainPilihSubtopik2 = ()=>{
-    const history = useHistory();  
+    const history = useHistory();   
+    const routeContext = useContext(RouteContext);
+    const path = history.location.pathname;
     const [isLoading,setisLoading] = useState(false);  
     let {divisiParam,topikParam,subtopik1Param} = useParams(); 
 
@@ -87,6 +89,8 @@ const UserAddComplainPilihSubtopik2 = ()=>{
         fetchSubTopik2().then((res)=>{ 
             setSubtopik2(res.sub_topik2) 
         })
+        
+        routeContext.setRouteContext(path)  
     },[])
     const moveToPilihLampiran = ()=>{ 
         history.push(`/user/complain/add/pilihLampiran/${divisiParam}/${topikParam}/${subtopik1Param}/${subtopik2}/${datePick}`);

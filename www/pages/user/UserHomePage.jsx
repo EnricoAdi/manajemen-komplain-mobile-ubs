@@ -74,7 +74,7 @@ const UserHomePage = ()=>{
                         {/*  Divider */}
                         <hr className="sidebar-divider my-2"/>
   
-                        <li className={routeContext.routeContext.includes("dashboard")?"nav-item active":"nav-item"} onClick={()=>{routeContext.setRouteContext("dashboard")}}> 
+                        <li className={routeContext.routeContext.includes("dashboard")?"nav-item active":"nav-item"}> 
                             <Link className="nav-link" to="/user/dashboard">
                                 <i className="fas fa-fw fa-tachometer-alt"></i>
                                 <span>Dashboard</span>
@@ -99,13 +99,13 @@ const UserHomePage = ()=>{
 
                                 <div className="bg-white py-2 collapse-inner rounded animated--fade-in">
                                     <h6 className="collapse-header">Pengajuan Komplain</h6>
-                                    <Link className="collapse-item" to="/user/complain/list" onClick={()=>{routeContext.setRouteContext("/user/complain/list")}}>Daftar Komplain</Link>
-                                    <Link className="collapse-item" to="/user/complain/add/pilihDivisi" onClick={()=>{routeContext.setRouteContext("/user/complain/add")}}>Tambah Komplain</Link>
+                                    <Link className="collapse-item" to="/user/complain/list">Daftar Komplain</Link>
+                                    <Link className="collapse-item" to="/user/complain/add/pilihDivisi">Tambah Komplain</Link>
                                 </div>
                             </div>
                         </li> 
                         
-                        <li className={routeContext.routeContext.includes("solved")?"nav-item active":"nav-item"} onClick={()=>{routeContext.setRouteContext("solved")}}>
+                        <li className={routeContext.routeContext.includes("solved")?"nav-item active":"nav-item"}>
                             <Link className="nav-link" to="/user/complain/solved">
                             <i className="fas fa-fw fa-envelope-open"></i>
                                 <span>Penyelesaian Komplain Diterima</span>
@@ -118,7 +118,7 @@ const UserHomePage = ()=>{
                         <div className="sidebar-heading">
                             Komplain Diterima
                         </div>   
-                        <li className={routeContext.routeContext.includes("listComplained")||routeContext.routeContext.includes("verifikasi")||routeContext.routeContext.includes("transfer")?"nav-item active":"nav-item"} onClick={()=>{routeContext.setRouteContext("listComplained")}}>
+                        <li className={routeContext.routeContext.includes("listComplained")||routeContext.routeContext.includes("verifikasi")||routeContext.routeContext.includes("transfer")?"nav-item active":"nav-item"}>
                             <Link className="nav-link" to="/user/complained/listComplained">
                                 <i className="fas fa-fw fa-list"></i>
                                 <span>Daftar Komplain</span>
@@ -135,13 +135,13 @@ const UserHomePage = ()=>{
 
                                 <div className="bg-white py-2 collapse-inner rounded animated--fade-in">
                                     <h6 className="collapse-header">Penyelesaian Komplain</h6>
-                                    <Link className="collapse-item" to="/user/complained/penugasan"  onClick={()=>{routeContext.setRouteContext("user/complained/penugasan")}}>Penugasan</Link>
-                                    <Link className="collapse-item" to="/user/complained/done"  onClick={()=>{routeContext.setRouteContext("user/complained/done")}}>Done</Link>
+                                    <Link className="collapse-item" to="/user/complained/penugasan">Penugasan</Link>
+                                    <Link className="collapse-item" to="/user/complained/done">Done</Link>
                                 </div>
                             </div>
                         </li>
                         
-                        <li className={routeContext.routeContext.includes("penyelesaian")?"nav-item active":"nav-item"} onClick={()=>{routeContext.setRouteContext("penyelesaian")}}> 
+                        <li className={routeContext.routeContext.includes("penyelesaian")?"nav-item active":"nav-item"} > 
                             <Link className="nav-link active" to="/user/complained/penyelesaian">
                                 <i className="fas fa-fw fa-wrench"></i>
                             <span>Komplain Ditugaskan</span></Link>

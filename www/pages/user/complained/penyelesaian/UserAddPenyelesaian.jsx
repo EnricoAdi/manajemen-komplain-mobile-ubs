@@ -1,6 +1,9 @@
 const UserAddPenyelesaian = ()=>{
     const mainContext = useContext(MainContext);
     const history = useHistory();
+    
+    const routeContext = useContext(RouteContext);
+    const path = history.location.pathname;
     const [isLoading,setisLoading] = useState(false); 
     const {no_komplain} = useParams(); 
     const [komplain, setKomplain] = useState(
@@ -58,6 +61,8 @@ const UserAddPenyelesaian = ()=>{
             setDeadline(preSended.deadline);
         }
         fetchComplain() 
+        
+        routeContext.setRouteContext(path)  
     },[])
     
     return(

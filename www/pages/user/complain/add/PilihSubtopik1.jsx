@@ -4,6 +4,8 @@ const UserAddComplainPilihSubtopik1 = ()=>{
     const history = useHistory();  
     let {divisiParam,topikParam} = useParams();
     const mainContext = useContext(MainContext);
+    const routeContext = useContext(RouteContext);
+    const path = history.location.pathname;
     const [isLoading,setisLoading] = useState(false); 
 
     const [divisi,setDivisi] = useState({ 
@@ -74,6 +76,7 @@ const UserAddComplainPilihSubtopik1 = ()=>{
         fetchSubTopik1().then((res)=>{ 
             setSubtopik1(res.sub_topik1) 
         })
+        routeContext.setRouteContext(path)  
     },[])
     return(
         <div> 

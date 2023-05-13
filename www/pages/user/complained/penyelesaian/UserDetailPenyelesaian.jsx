@@ -1,6 +1,9 @@
 const UserDetailPenyelesaian = ()=>{
     const mainContext = useContext(MainContext);
     const history = useHistory();
+    
+    const routeContext = useContext(RouteContext);
+    const path = history.location.pathname;
     const [isLoading,setisLoading] = useState(false); 
     const [showingLampiran,setShowingLampiran] = useState("");  
     const {no_komplain} = useParams(); 
@@ -35,6 +38,8 @@ const UserDetailPenyelesaian = ()=>{
     useEffect(()=>{ 
         setisLoading(true)
         fetchComplain() 
+        
+        routeContext.setRouteContext(path)  
     },[])
 
     return(
