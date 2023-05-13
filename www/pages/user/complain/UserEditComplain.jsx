@@ -121,7 +121,7 @@ const UserEditComplain = ()=>{
     <div className="row mt-4"> 
         <div className="col">
             <label className="form-label">Tambah Lampiran</label>
-            <input type="file" className="form-control" name="lampiran[]" style={{paddingTop:"30px", paddingLeft:"20px", height:"100px"}}  accept=".jpg,.png,.pdf,.docx,.xls,.xlsx,.txt" onChange={handleFileChange} multiple/>
+            <input type="file" className="form-control" name="lampiran[]" style={{paddingTop:"30px", paddingLeft:"20px", height:"100px"}} onChange={handleFileChange} multiple/>
         </div>
     </div>
     

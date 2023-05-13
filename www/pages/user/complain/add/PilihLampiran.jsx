@@ -145,7 +145,8 @@ const UserAddComplainPilihLampiran = ()=>{
             <div className="row mt-2">
                 <div className="col">
                 <label className="form-label">Unggah Lampiran (.jpg, .png, .pdf, .docx, .xlsx, .txt)</label>
-                <input type="file" className="form-control" name="lampiran[]" style={{paddingTop:"30px", paddingLeft:"20px", height:"100px"}}  accept=".jpg,.png,.pdf,.docx,.xls,.xlsx,.txt" multiple onChange={handleFileChange}/></div> 
+                {/* <input type="file" className="form-control" name="lampiran[]" style={{paddingTop:"30px", paddingLeft:"20px", height:"100px"}}  accept=".jpg,.png,.pdf,.docx,.xls,.xlsx,.txt" multiple onChange={handleFileChange}/></div>  */}
+                <input type="file" className="form-control" name="lampiran[]" style={{paddingTop:"30px", paddingLeft:"20px", height:"100px"}} multiple onChange={handleFileChange}/></div> 
             </div>
             <div className="row mt-4">
                 <div className="col"> 

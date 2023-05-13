@@ -147,7 +147,7 @@ const UserAddComplainPilihSubtopik2 = ()=>{
                     <Button href={`/user/complain/add/pilihSubtopik1/${divisiParam}/${topikParam}`} backgroundColor="danger" className="w-100">Sebelumnya</Button>  
                 </div>
             </div>
-            <div className="row mt-2">
+            <div className="row mt-2 mb-2">
                 <div className="col"> 
                     <Button onclick={moveToPilihLampiran} className="w-100">Berikutnya</Button> 
                 </div>

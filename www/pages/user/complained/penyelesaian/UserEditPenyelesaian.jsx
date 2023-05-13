@@ -237,7 +237,7 @@ const UserEditPenyelesaian = () => {
                     <div className="col">
 
                         <label className="form-label">Tambah Lampiran Penyelesaian (tidak wajib)</label>
-                        <input type="file" className="form-control" style={{paddingTop:"30px", paddingLeft:"20px", height:"100px"}}  accept=".jpg,.png,.pdf,.docx,.xls,.xlsx,.txt" multiple onChange={handleFileChange}/>
+                        <input type="file" className="form-control" style={{paddingTop:"30px", paddingLeft:"20px", height:"100px"}} multiple onChange={handleFileChange}/>
 
                     </div> 
                 </div> 
