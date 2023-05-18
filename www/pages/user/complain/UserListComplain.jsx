@@ -1,4 +1,8 @@
  
+/**
+ * 
+ * Halaman ini digunakan untuk mendapatkan data semua komplain yang dikirimkan oleh user beserta detail dari masing-masing komplain, dengan mengirimkan parameter token autentikasi di bagian header request. Nantinya, data komplain akan ditampilkan menggunakan card pada tampilan.
+ */
 const UserListComplain = ()=>{   
     const mainContext = useContext(MainContext);
     const history = useHistory();

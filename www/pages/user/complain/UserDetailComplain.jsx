@@ -1,3 +1,7 @@
+/**
+ * 
+ * Halaman ini digunakan untuk mendapatkan data komplain secara detail berdasarkan parameter nomor komplain yang dikirim oleh user. Halaman ini sendiri akan mengirimkan parameter berupa nomor komplain yang dituju ke API. HTTP Request akan dijalankan dengan menggunakan function Private Client, sehingga Autentikasi juga dikirim dengan parameter token autentikasi di bagian header request, kepada endpoint API “user/complain/detail/index/index_get/:nomor_komplain”.
+ */
 const UserDetailComplain = ()=>{ 
     const mainContext = useContext(MainContext);
     const history = useHistory();
@@ -47,6 +51,10 @@ const UserDetailComplain = ()=>{
         // history.push("/");
       }
     }
+
+    /**
+     * Bagian ini digunakan untuk menghapus data komplain berdasarkan parameter nomor komplain yang dikirim oleh user. HTTP Request akan dijalankan dengan menggunakan function Private Client, sehingga Autentikasi juga dikirim dengan parameter token autentikasi di bagian header request, kepada endpoint API “user/complain/detail/delete/index_get/:nomor_komplain”. 
+     */
     async function confirmDeleteComplain(){ 
         let ask = window.confirm("Apakah anda yakin ingin menghapus komplain "+no_komplain+" ? (Anda tidak bisa mengembalikan data yang telah dihapus)")
         if(ask){ 

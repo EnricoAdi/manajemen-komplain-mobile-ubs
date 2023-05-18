@@ -1,4 +1,8 @@
- 
+  /**
+     * 
+     * Untuk melakukan proses login ke dalam aplikasi, program akan mengirimkan data melalui HTTP Request dengan metode POST kepada API.  Data user akan dibungkus dalam JSON dan dikirimkan bersama dengan HTTP Request tadi. Nantinya endpoint akan memberikan response hasil login.} data 
+     * 
+     */
 const LoginPage = (param)=>{      
     
     const mainContext = useContext(MainContext); 
@@ -35,6 +39,7 @@ const LoginPage = (param)=>{
         width: "100%"
     }
     
+   
    async function login (data){   
     const result =  await PublicClient.post('Auth/index_post',data);   
     if(result.status){ 

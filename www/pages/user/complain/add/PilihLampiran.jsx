@@ -1,4 +1,8 @@
  
+/**
+ * 
+ *  Halaman ini digunakan untuk memproses penambahan komplain yang dikirim oleh user. Untuk halaman ini sendiri memiliki beberapa parameter yang akan dikirimkan kepada API, yaitu parameter kode topik, parameter kode subtopik 1, parameter kode subtopik 2, deskripsi masalah, serta daftar lampiran berupa file. Autentikasi juga dibutuhkan dengan mengirimkan parameter token autentikasi di bagian header request (lewat function Private Client) kepada endpoint API “user/complain/add/SendComplain/index_post”.
+ */
 const UserAddComplainPilihLampiran = ()=>{
     const history = useHistory();  
     const mainContext = useContext(MainContext);

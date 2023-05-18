@@ -1,3 +1,7 @@
+/**
+ * 
+ * Halaman ini ini digunakan untuk melakukan perubahan pada data komplain berdasarkan parameter nomor komplain yang dikirim oleh user. Untuk halaman ini sendiri akan mengirimkan parameter form data berupa tanggal, deskripsi, dan lampiran dari komplain kepada API. HTTP Request akan dijalankan dengan menggunakan function Private Client, sehingga Autentikasi juga dikirim dengan parameter token autentikasi di bagian header request, kepada endpoint API user/complain/detail/index/index_post/:nomor_komplain.
+ */
 const UserEditComplain = ()=>{
     const mainContext = useContext(MainContext);
     const history = useHistory();

@@ -16,13 +16,14 @@ const UserDashboard = ()=>{
             listKomplainDikirimBulanIniByUser : []
         } 
     ); 
+    /**
+     * Halaman ini digunakan untuk menampilkan semua data yang akan ditampilkan pada dashboard end user, yaitu antara lain jumlah komplain terkirim oleh user, jumlah komplain diterima oleh user, jumlah komplain dikerjakan oleh user, daftar komplain dikirim oleh user bulan ini, serta daftar komplain sedang diselesaikan oleh user, dengan mengirimkan parameter token autentikasi di bagian header request kepada endpoint API “user/dashboard/index_get”.
+     */
     fetchComplain = async ()=>{ 
         const res =  await PrivateClient.get('/User/Dashboard/index_get');    
         if(res.status){
           setisLoading(false) 
-          setData(
-              res.data
-          )
+          setData(res.data)
         }else{  
           UserModel.logout();  
           mainContext.setModalContext({

@@ -1,3 +1,7 @@
+/**
+ * 
+ * Halaman ini digunakan untuk melakukan transfer komplain berdasarkan parameter nomor komplain yang dikirim oleh user. Karena tujuan dari transfer adalah mengalihkan komplain ke data topik lain, sehingga dibutuhkan parameter topik, subtopik 1, dan subtopik 2. HTTP Request akan dijalankan dengan menggunakan function Private Client, sehingga autentikasi juga dikirim dengan parameter token autentikasi di bagian header request, kepada endpoint API “user/complained/transfer /index_post/:nomor_komplain”. 
+ */
 const UserTransferPage = ()=>{
     const mainContext = useContext(MainContext);
     const history = useHistory();

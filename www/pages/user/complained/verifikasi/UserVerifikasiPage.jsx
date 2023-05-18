@@ -1,3 +1,7 @@
+/**
+ * 
+ * Halaman ini digunakan untuk melakukan verifikasi pada komplain berdasarkan parameter nomor komplain yang dikirim oleh user. Halaman ini ditujukan bagi divisi yang diberikan komplain. HTTP Request akan dijalankan dengan menggunakan function Private Client, sehingga Autentikasi juga dikirim dengan parameter token autentikasi di bagian header request, kepada endpoint API “user/complained/verifikasi /index_get/:nomor_komplain”. 
+ */
 const UserVerifikasiPage = ()=>{
     const mainContext = useContext(MainContext); 
     const routeContext = useContext(RouteContext);
@@ -66,8 +70,7 @@ const UserVerifikasiPage = ()=>{
             open : true,
             message : res.message
         }) 
-        history.push("/user/complained/listComplained")
-       
+        history.push("/user/complained/listComplained") 
     }
     function moveToTransfer(){
         history.push("/user/complained/transfer/"+no_komplain)
