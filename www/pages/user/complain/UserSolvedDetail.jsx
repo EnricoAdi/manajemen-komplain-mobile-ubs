@@ -43,6 +43,10 @@ const UserSolvedDetail = ()=>{
             })    
         } 
     }
+    /**
+     * 
+     * Function ini digunakan untuk memberikan keputusan pada sebuah penyelesaian komplain yang telah diberikan oleh divisi bersangkutan berdasarkan nomor komplain yang dipilih oleh user. Aksi ini dilakukan jika user yang memberikan komplain sudah menerima penyelesaian komplain dari divisi terkait. Untuk aksi ini akan mengirimkan dua parameter, yaitu keputusan dan permintaan banding. Untuk keputusan sendiri terdapat 3 jenis, yaitu banding, validasi, dan cancel. HTTP Request akan dijalankan menggunakan function Private Client, sehingga autentikasi juga dikirim dengan parameter token autentikasi di bagian header request, kepada endpoint API “user/complain/solved/index_post/:nomor_komplain”. 
+     */
     async function selesai(){
         if(keputusan==""){ 
             mainContext.setModalContext({
@@ -74,9 +78,7 @@ const UserSolvedDetail = ()=>{
                     history.push("/user/complain/solved")
                     return;
                 }
-            }
-           
-
+            } 
         }
     }
     useEffect(()=>{

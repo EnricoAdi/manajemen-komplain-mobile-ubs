@@ -50,6 +50,10 @@ const UserEditPenyelesaian = () => {
         } 
     }
 
+    /**
+     * 
+     * Function ini digunakan untuk menghapus data lampiran komplain berdasarkan nomor komplain dan kode lampiran yang dikirim oleh user. HTTP Request akan dijalankan menggunakan function Private Client, sehingga autentikasi juga dikirim dengan parameter token autentikasi di bagian header request, kepada endpoint API “user/complained/penyelesaian/deleteLampiran/index_get/:nomor_komplain”.  
+     */
     async function deleteLampiran(kode_lampiran){
         let confirm = window.confirm("Apakah anda yakin ingin menghapus lampiran ini?")
         if(confirm){ 

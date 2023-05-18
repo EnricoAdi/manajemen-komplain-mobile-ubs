@@ -41,8 +41,13 @@ const UserDetailDoneKomplain = ()=>{
             // history.push("/");
           }
     }
+    
+    /**
+     * Function digunakan untuk mengisi kolom “user_done” dan “tgl_done” pada sebuah komplain komplain yang dipilih oleh user. Aksi ini dilakukan jika user sudah yakin bahwa sebuah penyelesaian komplain sudah selesai sepenuhnya, dan penyelesaian komplain akan diberikan kembali pada user yang memberikan komplain. HTTP Request akan dijalankan menggunakan function Private Client, sehingga autentikasi juga dikirim dengan parameter token autentikasi di bagian header request, kepada endpoint API “user/complained/done/success/index_get/:nomor_komplain”. 
+     */
+    
     async function selesai(){
-        let confirm = window.confirm("Apakah anda setuju menyelesaikan penyelesaian komplain?")
+        let confirm = window.confirm("Apakah anda setuju mengirim penyelesaian komplain?")
         if(confirm){
             setisLoadingSubmit(true)   
             const res =  await PrivateClient.get('User/Complained/Done/Success/index_get/'+no_komplain);     
@@ -51,8 +56,7 @@ const UserDetailDoneKomplain = ()=>{
                 open : true,
                 message : res.message
             })  
-            history.push("/user/complained/done")
-             
+            history.push("/user/complained/done") 
         }
     }
     async function hapus(){
