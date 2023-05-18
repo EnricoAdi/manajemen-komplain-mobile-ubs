@@ -52,7 +52,7 @@ const UserIsiPenugasan = ()=>{
             // history.push("/");
           }
     }
-    /**Function ini digunakan untuk mengisi data user yang ditugaskan untuk menangani komplain berdasarkan parameter nomor komplain yang dikirim oleh user. Karena tujuan dari penugasan adalah menyimpan data user yang bertanggung jawab, sehingga akan dikirimkan parameter nomor induk user dalam request body. HTTP Request akan dijalankan menggunakan function Private Client, sehingga autentikasi juga dikirim dengan parameter token autentikasi di bagian header request, kepada endpoint API “user/complained/penugasan/add/index_post/:nomor_komplain”.  */
+    /**Function ini digunakan untuk mengisi data user yang ditugaskan untuk menangani komplain berdasarkan parameter nomor komplain yang dikirim oleh user. Karena tujuan dari penugasan adalah menyimpan data user yang bertanggung jawab, sehingga akan dikirimkan parameter nomor induk user dalam request body. HTTP Request akan dijalankan menggunakan function Private Client, sehingga autentikasi juga dikirim dengan parameter token autentikasi di bagian header request, kepada endpoint API user/complained/penugasan/add/index_post/:nomor_komplain.  */
     async function sendPenugasan(){ 
         const payload = {
             "user" : inputUser.NOMOR_INDUK

@@ -68,6 +68,9 @@ const UserEditPenyelesaian = () => {
             }
         }
     }
+    /**
+     * Function ini digunakan untuk menghapus data penyelesaian komplain (feedback terhadap komplain) berdasarkan komplain yang dipilih oleh user. HTTP Request akan dijalankan menggunakan function Private Client, sehingga autentikasi juga dikirim dengan parameter token autentikasi di bagian header request, kepada endpoint API “user/complained/penyelesaian/edit/index_get/:nomor_komplain”. 
+     */
     async function deleteFeedback(){
         let confirm = window.confirm("Apakah anda yakin ingin menghapus data penyelesaian komplain ini?")
         if(confirm){
@@ -85,6 +88,11 @@ const UserEditPenyelesaian = () => {
             }
         }
     }
+
+    /**
+     * 
+     * Function ini digunakan untuk mengubah data penyelesaian komplain (feedback terhadap komplain) berdasarkan parameter nomor komplain yang dikirim oleh user. Halaman ini akan mengirimkan beberapa parameter, yaitu data akar masalah, tindakan preventif, tindakan korektif, dan tanggal deadline baru berdasarkan input user untuk sebuah komplain. Lalu untuk pengubahan data penyelesaian komplain juga bisa menambah lampiran apabila user ingin memberikan lampiran dalam bentuk file. HTTP Request akan dijalankan menggunakan function Private Client, sehingga autentikasi juga dikirim dengan parameter token autentikasi di bagian header request, kepada endpoint API “user/complained/penyelesaian/edit/index_post/:nomor_komplain”. 
+     */
     async function updateFeedback(){
         let confirm = window.confirm("Apakah anda yakin ingin mengubah data penyelesaian komplain ini?")
         if(confirm){

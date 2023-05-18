@@ -1,3 +1,7 @@
+/**
+ * 
+ * Halaman ini digunakan untuk menambah penyelesaian komplain (feedback terhadap komplain) berdasarkan nomor komplain yang dipilih oleh user. Halaman ini akan mengirimkan data yaitu data akar masalah, tindakan preventif, tindakan korektif, dan tanggal deadline bagi sebuah komplain untuk diselesaikan. Lalu untuk penyelesaian komplain juga bisa digunakan untuk menambah lampiran apabila user terkait ingin memberikan lampiran dalam bentuk file. HTTP Request akan dijalankan menggunakan function Private Client, sehingga autentikasi juga dikirim dengan parameter token autentikasi di bagian header request, kepada endpoint API “user/complained/penyelesaian/sendFeedback/index_post/:nomor_komplain”. 
+ */
 const UserAddLampiranPenyelesaian = ()=>{
     const mainContext = useContext(MainContext);
     const history = useHistory();
