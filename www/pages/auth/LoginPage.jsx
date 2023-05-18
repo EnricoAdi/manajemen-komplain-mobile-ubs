@@ -41,8 +41,8 @@ const LoginPage = (param)=>{
     
    
    async function login (data){   
-    const result =  await PublicClient.post('Auth/index_post',data);   
-    if(result.status){ 
+    const result =  await PublicClient.post('Auth/index_post',data);    
+    if(result.status<300){ 
         UserModel.set({
           divisi : result.divisi,
           nama : result.nama,
@@ -71,13 +71,13 @@ const LoginPage = (param)=>{
             "nomor_induk" : noInduk,
             "password" : pass,
         }
-        let res = await login(data);
+        let res = await login(data);  
         if(!res.status){  
-            setisLoading(false); 
             mainContext.setModalContext({
                 open : true,
                 message : "Login gagal, "+res.message
             }) 
+            setisLoading(false); 
         }else{ 
             setisLoading(false); 
             switch(res.hak_akses){
