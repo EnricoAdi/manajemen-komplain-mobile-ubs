@@ -1,4 +1,4 @@
-const GMListComplain = ()=>{
+const ManagerListComplain = ()=>{
     const mainContext = useContext(MainContext); 
     const routeContext = useContext(RouteContext);
     const [isLoading,setisLoading] = useState(false); 
@@ -13,7 +13,7 @@ const GMListComplain = ()=>{
     },[]) 
     return(
         <>
-            <PageTitle>GM List Complain</PageTitle>
+            <PageTitle>Manager List Complain</PageTitle>
         </>
     )
 }

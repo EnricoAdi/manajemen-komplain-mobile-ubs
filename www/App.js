@@ -1,5 +1,3 @@
-const ManagerPage = () => <h1>Manager</h1>  
-
 const App = ()=> {        
     
     const [modalContext, setModalContext] = useState({
@@ -24,7 +22,7 @@ const App = ()=> {
                                         <GMHomePage/>
                                     </Route>
                                     <Route path="/manager">
-                                        <ManagerPage/>
+                                        <ManagerHomePage/>
                                     </Route>
                                     <Route exact path="/">
                                         <LoginPage/>
