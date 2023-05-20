@@ -93,15 +93,43 @@ const ManagerDashboard = ()=>{
                         </div>
                         
                     </div>
-                </div>
- 
-  
+                </div> 
+                
                 <div className="row mt-2">
-                    <div className="col mt-2" style={{height:"100px"}}> 
-                        <Card1 judul="Daftar Komplain Terkirim dari semua divisi selama 90 hari terakhir" isi={jumlahKomplainTerkirim} icon="fa-paper-plane" warna="primary"/>   
+                    <div className="col mt-2" style={{height:"100px"}}>  
+
+                        <div className={'card shadow py-2'}>
+                            <div className='card-body'>
+                            <div className='row no-gutters align-items-center'>
+                                <div className='col mr-2'>
+                                <div className={'text-xs font-weight-bold text-uppercase mb-1 text-primary'}>
+                                Daftar Komplain Terkirim Selama 90 hari terakhir</div>
+                                <div className='h5 mb-0 font-weight-bold text-gray-800'>{jumlahKomplainTerkirim}</div>
+                                </div>
+                                <div className='col-auto'>
+                                <i className={`fas fa-paper-plane fa-2x text-gray-300 mt-4`}></i>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div className="col mt-2" style={{height:"100px"}}>
-                        <Card1 judul="Daftar Komplain Diterima untuk semua divisi selama 90 hari terakhir" isi={komplainDiterima2} icon="fa-check" warna="primary"/>  
+                    <div className="col mt-2" style={{height:"100px"}}> 
+                        
+                        <div className={'card shadow py-2'}>
+                            <div className='card-body'>
+                            <div className='row no-gutters align-items-center'>
+                                <div className='col mr-2'>
+                                <div className={'text-xs font-weight-bold text-uppercase mb-1 text-primary'}>
+                                Daftar Komplain Diterima Selama 90 hari terakhir</div>
+                                <div className='h5 mb-0 font-weight-bold text-gray-800'>{komplainDiterima2}</div>
+                                </div>
+                                <div className='col-auto'>
+                                <i className={`fas fa-paper-plane fa-2x text-gray-300 mt-4`}></i>
+                                </div>
+                            </div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
             </>}
