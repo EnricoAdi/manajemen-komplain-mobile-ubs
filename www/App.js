@@ -21,7 +21,7 @@ const App = ()=> {
                                         <AdminHomePage/>
                                     </Route>
                                     <Route path="/gm">
-                                        <LoginPage/>
+                                        <GMHomePage/>
                                     </Route>
                                     <Route path="/manager">
                                         <ManagerPage/>

@@ -2,7 +2,7 @@
      * 
      * Untuk melakukan proses login ke dalam aplikasi, program akan mengirimkan data melalui HTTP Request dengan metode POST kepada API.  Data user akan dibungkus dalam JSON dan dikirimkan bersama dengan HTTP Request tadi. Nantinya endpoint akan memberikan response hasil login.} data 
      * 
-     */
+     */ 
 const LoginPage = (param)=>{      
     
     const mainContext = useContext(MainContext); 
@@ -22,11 +22,7 @@ const LoginPage = (param)=>{
     const onChangePass = (e)=>{
         setpass(e.target.value);
     }
-    const bodyStyle = {
-        height:"100%",
-        backgroundColor:"#004882", 
-        paddingBottom:"15%", 
-    };
+     
     const wrapStyle = {
         paddingBottom: "7%", 
         paddingTop:"10px"
@@ -97,8 +93,8 @@ const LoginPage = (param)=>{
                 //     history.push("admin")  
             }
         }
-    }  
-    useEffect(()=>{ 
+    }   
+    useEffect(()=>{  
         const userCek = UserModel.get() 
         if(userCek){ 
             switch(userCek.hak_akses){
@@ -120,7 +116,10 @@ const LoginPage = (param)=>{
          
     },[]) 
     return (
-        <div style={bodyStyle}>  
+        <div style={{  
+            height:"100%",
+            backgroundColor:"#004882", 
+            paddingBottom:"15%" }}>  
             <section className="pt-4">
                 <div className="container"> 
                     <div className="row justify-content-center"> 

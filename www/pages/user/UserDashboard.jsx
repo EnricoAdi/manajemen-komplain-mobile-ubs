@@ -21,7 +21,7 @@ const UserDashboard = ()=>{
      */
     fetchComplain = async ()=>{ 
         const res =  await PrivateClient.get('/User/Dashboard/index_get');    
-        if(res.status){
+        if(res.status<300){
           setisLoading(false) 
           setData(res.data)
         }else{  
