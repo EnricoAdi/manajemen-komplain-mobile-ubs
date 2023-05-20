@@ -25,9 +25,10 @@ const TopbarProfile = (props)=>{
                     <div className="dropdown-item">
                         {user.nomor_induk} - {user.nama}
                     </div>
+                    {user.hak_akses<3 && 
                     <div className="dropdown-item" >
                         {user.divisi}
-                    </div>
+                    </div>}
                     <div className="dropdown-item" onClick={confirmLogout}>
                         <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         Logout
