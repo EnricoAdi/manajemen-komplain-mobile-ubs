@@ -46,10 +46,14 @@ const UserDashboard = ()=>{
             <div className="row mt-2">
                 <div className="col mt-2">
                     <Card1 judul="Komplain Terkirim" isi={data.jumlahKomplainTerkirim} icon="fa-paper-plane" warna="primary"/> 
-                </div>
+                </div> 
+            </div>
+            <div className="row mt-2"> 
                 <div className="col mt-2">
                     <Card1 judul="Komplain Diterima" isi={data.jumlahKomplainDiterimaByUser} icon="fa-check" warna="primary"/>  
-                </div>
+                </div> 
+            </div>
+            <div className="row mt-2">  
                 <div className="col mt-2">
                     <Card1 judul="Komplain Sedang Ditangani" isi={data.jumlahKomplainDikerjakanByUser} icon="fa-clock" warna="primary"/>  
                 </div>
