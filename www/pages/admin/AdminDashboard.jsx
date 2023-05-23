@@ -8,26 +8,39 @@ const AdminDashboard = ()=>{
 
     const path = history.location.pathname;
     const [data, setData] = useState(
-        { 
-            jumlahKomplainDivisiByMonth: [], 
+        {  
             bulanIni: "May",
-            tahunIni: "2023"
+            tahunIni: "2021"
         } 
     ); 
+    const [jumlahKomplainMasukByYear, setJumlahKomplainMasukByYear] = useState([
+        {
+
+            TOTAL: '10',
+            BULAN : 'January'
+        },{
+
+            TOTAL: '50',
+            BULAN : 'February'
+        }
+    ])
+    const [jumlahKomplainDivisiByMonth, setJumlahKomplainDivisiByMonth] = useState([
+        {
+            TOTAL: 10,
+            NAMA : 'IT'
+        },{
+            TOTAL: 10,
+            NAMA : 'ACCOUNTING'
+        }
+    ])
     fetchComplain = async ()=>{ 
         const res =  await PrivateClient.get('/Admin/Dashboard/index_get');    
         if(res.status<300){
-          setisLoading(false) 
-        //   setData(res.data)  
-          console.log(res.data)
-        //   if (res.data.komplainDiterima && res.data.komplainDiterima != "Belum ada") {
-        //      setKomplainDiterima2(res.data.komplainDiterima[0].JUMLAH)
-        //     }
-        //     else {
-        //         setKomplainDiterima2("<H1>Belum ada komplain diterima</H1>")
-        //     }
-
+          setData(res.data)    
+          setJumlahKomplainMasukByYear(res.data.jumlahKomplainMasukByYear)
+          setJumlahKomplainDivisiByMonth(res.data.jumlahKomplainDivisiByMonth)
           
+          setisLoading(false) 
         }else{  
           UserModel.logout();  
           mainContext.setModalContext({
@@ -46,10 +59,12 @@ const AdminDashboard = ()=>{
     return(
         <>
             <PageTitle>Dashboard Admin</PageTitle>
-            {!isLoading && <> 
-                <BarChart title="Komplain Masuk Tahun " labels={['a','b','c']} data={['1','2','3']} caption={"Grafik Jumlah Komplain Masuk Tahun  "+data.tahunIni} maks={100} id="chartKomplainMasuk" keteranganData="Jumlah Komplain"/> 
-
-                <DoughnutChart title="Divisi Terkomplain" labels={['a','b','c']} data={['1','2','3']} caption={"Grafik Divisi Terkomplain Bulan "+data.bulanIni} id="chartDivisiTerkomplain"/> 
+            {!isLoading && <>  
+                 <BarChart title={"Komplain Masuk Tahun "+data.tahunIni} labels={jumlahKomplainMasukByYear.map((item)=>item.BULAN)} 
+                data={jumlahKomplainMasukByYear.map((item)=>item.TOTAL)} 
+                caption={"Grafik Jumlah Komplain Masuk Tahun  "+data.tahunIni} maks={100} id="chartKomplainMasuk" keteranganData="Jumlah Komplain"/> 
+                 
+                <DoughnutChart title="Divisi Terkomplain" labels={jumlahKomplainDivisiByMonth.map((item)=>item.NAMA)}  data={jumlahKomplainDivisiByMonth.map((item)=>item.TOTAL)}  caption={"Grafik Divisi Terkomplain Bulan "+data.bulanIni} id="chartDivisiTerkomplain"/> 
                 
             </>}
         </>
