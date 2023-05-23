@@ -1,5 +1,6 @@
  
 const AdminHomePage = () => {
+    const routeContext = useContext(RouteContext);
     let logedIn = UserModel.get();
     const [user,setUser] = useState({
         token : '123',
@@ -8,7 +9,14 @@ const AdminHomePage = () => {
         hak_akses : '1',
         nomor_induk : '123'
     });
- 
+
+    const toggleSidebar = ()=>{ 
+        if(sidebarClass=="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"){
+            setSidebarClass("navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled")
+        }else{
+            setSidebarClass("navbar-nav bg-gradient-primary sidebar sidebar-dark accordion")
+        }
+    }
 
     const history = useHistory();   
     const path = history.location.pathname;
@@ -17,9 +25,18 @@ const AdminHomePage = () => {
         return res.status
     }
     
+    const confirmLogout = ()=>{
+        let confirm = window.confirm("Apakah anda yakin ingin logout?");
+        if(confirm){
+            UserModel.logout();   
+            history.push("/");
+        }
+    }
+
     useEffect(()=>{  
         setUser(UserModel.get())  
         const userCek = UserModel.get()  
+        routeContext.setRouteContext(path)
         if(userCek){  
             setUser(UserModel.get()) 
             cekToken().then((res)=>{
@@ -58,7 +75,7 @@ const AdminHomePage = () => {
                     <span>Dashboard</span></a>
             </li>
 
-            <li className="nav-item active">
+            {/* <li className="nav-item active">
                 <a className="nav-link" href="Admin/Dashboard" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
 
                     <i className="fas fa-fw fa-book"></i>
@@ -73,8 +90,8 @@ const AdminHomePage = () => {
                         <a className="collapse-item" href="<?= base_url(); ?>Admin/Master/Email">Master Email</a>
                     </div>
                 </div>
-            </li>
-            <li className="nav-item active">
+            </li> */}
+            {/* <li className="nav-item active">
                 <a className="nav-link" href="<?= base_url(); ?>Admin/Dashboard" data-toggle="collapse" data-target="#collapsePagesLaporan" aria-expanded="true" aria-controls="collapsePagesLaporan">
 
                     <i className="fas fa-fw fa-file"></i>
@@ -89,9 +106,16 @@ const AdminHomePage = () => {
                         <a className="collapse-item" href="<?= base_url(); ?>Admin/Laporan/PerTopik">Laporan Per Topik</a>
                     </div>
                 </div>
-            </li> 
-            <hr className="sidebar-divider d-none d-md-block"/>
+            </li>  */}
  
+            <li className="nav-item active">
+                <div className="nav-link btn-danger mt-5 text-center" onClick={confirmLogout}>     
+                    LOGOUT 
+                </div>
+            </li>
+
+            <hr className="sidebar-divider d-none d-md-block"/>
+
             <div className="text-center d-none d-md-inline">
                 <button className="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
@@ -105,14 +129,21 @@ const AdminHomePage = () => {
  
                     <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
                         <i className="fa fa-bars"></i>
-                    </button>
- 
-                    
+                    </button> 
                     
                     <TopbarProfile user={user}/>
 
                 </nav> 
                 <div className="container-fluid">
+                <Switch>    
+                    <Route exact path="/admin/dashboard">
+                        <AdminDashboard/>
+                    </Route>
+                    <Route path="/admin">
+                        <Redirect to="/admin/dashboard"/>
+                    </Route>
+                </Switch>
+                       
                 </div> 
 				
             </div> 
