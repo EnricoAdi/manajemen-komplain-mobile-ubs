@@ -71,9 +71,9 @@ const AdminHomePage = () => {
             <hr className="sidebar-divider my-2"/>
  
             <li className="nav-item active">
-                <a className="nav-link" href="<?= base_url(); ?>Admin/Dashboard">
+                <Link className="nav-link" to="/admin/dashboard">
                     <i className="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span></Link>
             </li>
  
             <li className="nav-item active">
