@@ -90,6 +90,18 @@ const UserAddComplainPilihTopik = ()=>{
                 </div>
             </div>
             <div className="row mt-4">
+            
+            <div className="col">
+                    
+                    <label htmlFor="subtopik1" className="form-label" >Subtopik 1</label>
+                    <input type="text" className="form-control mb-3" name="subtopik1" disabled/> 
+                    
+                    <label htmlFor="subtopik2" className="form-label" >Subtopik 2</label>
+                    <input type="text" className="form-control mb-3" name="subtopik1" disabled/>  
+                    
+            </div>
+            </div>
+            <div className="row mt-4">
                 <div className="col">
                     <Button href="/user/complain/add/pilihDivisi" backgroundColor="danger" className="w-100">Sebelumnya</Button>  
                 </div>  

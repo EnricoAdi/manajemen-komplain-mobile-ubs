@@ -61,12 +61,25 @@ const UserAddComplainPilihDivisi= ()=>{
                         <Loading color="primary"/>
                     </div> }
                     {!isLoading && 
-                        <select className="form-control" name="divisi" id="divisi" onChange={onChangeDivisi}> 
+                        <select className="form-control mb-3" name="divisi" id="divisi" onChange={onChangeDivisi}> 
                             {data.map((item,index)=>{
                                 return <option value={item.kode} key={index} >{item.kode} - {item.nama}</option>
                             })}
                         </select> 
                     }
+                    
+                    <label htmlFor="topik" className="form-label" >Topik</label>
+                    <input type="text" className="form-control mb-3" name="topik" disabled/> 
+                </div>
+            </div>
+            <div className="row">
+                <div className="col">
+                    
+                <label htmlFor="subtopik1" className="form-label" >Subtopik 1</label>
+                    <input type="text" className="form-control mb-3" name="subtopik1" disabled/>  
+                    
+                    <label htmlFor="subtopik2" className="form-label" >Subtopik 2</label>
+                    <input type="text" className="form-control mb-3" name="subtopik1" disabled/> 
                 </div>
             </div>
             <div className="row mt-4">

@@ -106,13 +106,15 @@ const UserAddComplainPilihSubtopik1 = ()=>{
                         <Loading color="primary"/>
                     </div> }
                     {!isLoading && 
-                    <select className="form-control" name="subtopik1" onChange={onChangeSubTopik1}> 
+                    <select className="form-control mb-3" name="subtopik1" onChange={onChangeSubTopik1}> 
                     {data.map((item,index)=>{
                         return <option value={item.sub_topik1} key={index} >{item.sub_topik1} - {item.deskripsi}</option>
                     })} 
                     </select> }
 
                     
+                    <label htmlFor="subtopik2" className="form-label" >Subtopik 2</label>
+                    <input type="text" className="form-control mb-3" name="subtopik1" disabled/> 
                      
                 </div> 
             </div>

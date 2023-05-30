@@ -60,10 +60,15 @@ const UserDashboard = ()=>{
             </div>
             
             <h4 className="h4 mt-4 text-gray-800 font-weight-bold">Komplain Dikirim Bulan Ini</h4>
+
+                {data.listKomplainDikirimBulanIniByUser.length>4 && <Link to="/user/complain/list" className="text-primary">Lihat lainnya...</Link> }
+                
                     {data.listKomplainDikirimBulanIniByUser.length < 1 &&  <Card1 judul="Belum Ada Komplain" isi="" icon="" warna="primary"/> }
                     {data.listKomplainDikirimBulanIniByUser.length > 0 && 
                         <div className="">
                             {data.listKomplainDikirimBulanIniByUser.map((item,index)=>{
+                                if(index<4){
+                                    
                                 let color = "success"
                                 if(item.STATUS == "OPEN"){
                                     color = "success"
@@ -88,31 +93,36 @@ const UserDashboard = ()=>{
                                                 </div>
                                             </div> 
                                         </Link>
+                                }
                             })}
                         </div>
                         }
                    
             <h4 className="h4 mt-4 text-gray-800 font-weight-bold">Komplain Sedang Diselesaikan</h4>
+            
+            {data.listKomplainOnGoingByUser.length>4 && <Link to="/user/complained/penyelesaian" className="text-primary">Lihat lainnya...</Link> }
+
                     {data.listKomplainOnGoingByUser.length< 1 && <Card1 judul="Belum Ada Komplain" isi="" icon="" warna="primary"/>  }
                     {data.listKomplainOnGoingByUser.length > 0 && 
                         <div className=" mb-4">
                             {data.listKomplainOnGoingByUser.map((item,index)=>{
-                                let progress = 20;
-                                if (item.T_KOREKTIF != null) {
-                                    progress = 50;
-                                    if (item.USER_DONE != null) {
-                                        progress = 75;
-                                        if (item.USER_VALIDASI != null) {
-                                            progress = 100;
-                                        }
-                                        if (item.USER_CANCEL != null) {
-                                            progress = 100;
-                                        }
-                                        if (item.USER_BANDING != null) {
-                                            progress = 100;
+                                if(index<4){
+                                    let progress = 20;
+                                    if (item.T_KOREKTIF != null) {
+                                        progress = 50;
+                                        if (item.USER_DONE != null) {
+                                            progress = 75;
+                                            if (item.USER_VALIDASI != null) {
+                                                progress = 100;
+                                            }
+                                            if (item.USER_CANCEL != null) {
+                                                progress = 100;
+                                            }
+                                            if (item.USER_BANDING != null) {
+                                                progress = 100;
+                                            }
                                         }
                                     }
-                                }
                                 return <Link to={`/User/Complained/Penyelesaian/detail/${item.NO_KOMPLAIN}`} key={index}> 
                                             <div className='card shadow h-100 py-2 mr-3 mt-3 w-100'  >
                                                 <div className='card-body'>
@@ -136,6 +146,8 @@ const UserDashboard = ()=>{
                                                 </div>
                                             </div>
                                 </Link>
+                                }
+                              
                             })}
 
                         </div>
